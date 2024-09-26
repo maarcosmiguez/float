@@ -39,8 +39,16 @@ export default () => {
       path: "#home",
       icon: <HomeModernIcon className="w-4 h-4" />,
     },
-    { title: "Contenido", path: "#contenido", icon: <PlayIcon className="w-4 h-4" /> },
-    { title: "Qué hacemos", path: "#somos", icon: <BoltIcon className="w-4 h-4" /> },
+    {
+      title: "Contenido",
+      path: "#contenido",
+      icon: <PlayIcon className="w-4 h-4" />,
+    },
+    {
+      title: "Qué hacemos",
+      path: "#somos",
+      icon: <BoltIcon className="w-4 h-4" />,
+    },
   ];
 
   useEffect(() => {
@@ -119,7 +127,7 @@ export default () => {
                       key={idx}
                       className="font-medium text-sm duration-200 flex items-center gap-2 group px-2 lg:px-6 py-1 text-md leading-[22px] md:px-3 hover:text-gray-100 text-gray-300"
                     >
-                      <Link {...item.props} href={item.path} className="block">
+                      <Link href={item.path} className="block">
                         {item.title}
                       </Link>
                       {/* El ícono siempre será visible en mobile */}
