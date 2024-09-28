@@ -2,8 +2,6 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { serialize } from "next-mdx-remote/serialize";
-import MDXRemoteClient from "components/MDXRemoteClient";
-import SupportedLibraries from "components/ui/SupportedLibraries";
 
 const title = "Float UI - Introduction";
 const description =
@@ -35,10 +33,6 @@ export default async () => {
   return (
     <>
       <article className="prose prose-invert max-w-7xl">
-        <MDXRemoteClient
-          mdxSource={{ ...mdxSource }}
-          components={{ SupportedLibraries }}
-        />
       </article>
     </>
   );
