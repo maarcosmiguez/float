@@ -3,19 +3,15 @@ import Image from "next/image";
 import Brand from "components/ui/Brand";
 import BorderGradient from "./BorderGradient";
 import BgGradient from "./BgGradient";
-import { IconGithub } from "components/icons";
 import SocialMedia from "../SocialMedia";
 
 const navigation = [
-  { name: "Inicio", href: "#home" },
-  { name: "Contenido", href: "#contenido" },
-  { name: "Esto es dopamina", href: "#somos" },
-  { name: "Aportá a este proyecto", href: "/blog" },
+  { name: "Inicio", href: "#" }, // Cambiar href a "#" para ir al principio de la página
 ];
 
 export default () => (
   <footer className="relative mt-40 pt-24 overflow-hidden">
-    <div>
+    <section>
       <BorderGradient className=" absolute inset-x-0 top-0 mx-auto" />
       <BgGradient className="absolute inset-x-0 top-0 mx-auto" />
       <div className="custom-screen-lg pb-6 gap-x-8 items-start justify-between flex-wrap relative sm:flex">
@@ -34,7 +30,6 @@ export default () => (
         </div>
         <div className="flex-1 mt-4 pb-8 flex flex-wrap gap-4 font-medium sm:justify-end sm:mt-0">
           <ul className="flex-grow max-w-[15rem] space-y-2">
-            <li className="text-zinc-100 font-medium">Navegación</li>
             {navigation.map((item, idx) => (
               <li
                 key={idx}
@@ -53,6 +48,6 @@ export default () => (
           &copy; 2024 - Dopmaina - Para más placer
         </div>
       </div>
-    </div>
+    </section>
   </footer>
 );

@@ -25,17 +25,17 @@ export default ({
   classNameContainer,
   onCancel,
 }: Props) => {
-  return isActive ? (
-    <div className="fixed w-full h-full inset-0 z-40 overflow-y-auto">
+  return (
+    <div className={`fixed w-full h-full inset-0 z-40 overflow-y-auto ${isActive ? 'transition-opacity duration-500 ease-in-out opacity-100' : 'opacity-0 pointer-events-none'}`}>
       <BlurBackground isActive={true} setActive={onCancel} />
       <div
         className={mergeTW(
-          `flex items-center min-h-screen px-4 py-8 ${classNameContainer}`
+          `flex items-center min-h-screen px-10 py-12 ${classNameContainer}`
         )}
       >
         <div
           className={mergeTW(
-            `relative z-10 w-full max-w-lg p-4 mx-auto bg-zinc-900 rounded-xl shadow-xl ${className}`
+            `relative z-10 w-full max-w-4xl p-4 mx-auto bg-slate-800 rounded-xl shadow-xl transform transition-transform duration-500 ease-in-out ${isActive ? 'scale-100' : 'scale-95'}` // Añadir transformación
           )}
         >
           {variant == "default" ? (
@@ -60,7 +60,5 @@ export default ({
         </div>
       </div>
     </div>
-  ) : (
-    <></>
   );
 };

@@ -15,7 +15,7 @@ export default ({
     className={mergeTW(
       `${
         isActive ? "opacity-100" : "opacity-0 pointer-events-none"
-      } transform duration-200 z-10 fixed inset-0 w-full h-full bg-black/20 backdrop-blur-sm ${className}`
+      } transform duration-200 z-10 fixed inset-0 w-full h-full bg-black/40 cursor-pointer backdrop-blur-lg ${className}`
     )}
     onClick={() => setActive(false)}
   ></div>

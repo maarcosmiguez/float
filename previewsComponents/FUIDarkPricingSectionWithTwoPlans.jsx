@@ -61,7 +61,7 @@ export default function FUIDarkPricingSectionWithTwoPlans() {
                 <div className='mt-16 justify-center sm:flex'>
                     {
                         plans.map((item, idx) => (
-                            <div key={idx} className={`relative flex-1 flex items-stretch flex-col mt-6 border-2 sm:mt-0 sm:rounded-xl sm:max-w-md ${item.isMostPop ? "bg-gray-900 border-cyan-400 border-x-0 sm:border-x-2" : "border-transparent"}`}>
+                            <div key={idx} className={`relative flex-1 flex items-stretch flex-col mt-6 border-2 sm:mt-0 sm:rounded-xl sm:max-w-md ${item.isMostPop ? "bg-gray-300 border-cyan-400 border-x-0 sm:border-x-2" : "border-transparent"}`}>
                                 <div className="p-4 py-8 space-y-4 border-b border-gray-700 md:p-8">
                                     <span className='text-gray-200 font-medium'>
                                         {item.name}

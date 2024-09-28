@@ -17,22 +17,20 @@ import NewsletterModal from "../NewsletterModal";
 export default () => {
   const [state, setState] = useState(false);
   const [isNewsletterModalActive, setNewsletterModalActive] = useState(false);
-
   const [animateHeader, setAnimateHeader] = useState(false);
+
+  // Manejo del scroll para animar el header
   useEffect(() => {
     const listener = () => {
-      if (window.scrollY > 140) {
-        setAnimateHeader(true);
-      } else setAnimateHeader(false);
+      setAnimateHeader(window.scrollY > 140);
     };
     window.addEventListener("scroll", listener);
-
     return () => {
       window.removeEventListener("scroll", listener);
     };
   }, []);
 
-  // Replace javascript:void(0) paths with your paths
+  // Navegación del sitio
   const navigation = [
     {
       title: "Inicio",
@@ -51,13 +49,17 @@ export default () => {
     },
   ];
 
+  // Cerrar menú al hacer clic fuera de él
   useEffect(() => {
     document.onclick = (e) => {
       const target = e.target as HTMLElement;
-      if (target && !target.closest(".menu-btn")) setState(false);
+      if (target && !target.closest(".menu-btn")) {
+        setState(false);
+      }
     };
   }, []);
 
+  // Botón para abrir el modal de newsletter
   function EditorWithAiButton() {
     return (
       <button
@@ -66,7 +68,6 @@ export default () => {
       >
         <span className="hidden md:block">Aportar a este proyecto</span>
         <span className="md:hidden">Aportá</span>
-        {/* El ícono siempre visible en mobile */}
         <SparklesIcon className="w-4 h-4 opacity-100 scale-100 md:opacity-0 md:group-hover:opacity-100 md:scale-50 md:group-hover:scale-125 duration-150" />
       </button>
     );
@@ -75,12 +76,12 @@ export default () => {
   return (
     <>
       <header
-        className={`w-full backdrop-filter backdrop-blur-lg bg-neutral-950/50 fixed z-50 trasition ease-in-out duration-500 ${
-          animateHeader && "shadow-xl"
+        className={`w-full backdrop-filter backdrop-blur-lg bg-neutral-950/50 fixed z-50 transition ease-in-out duration-500 ${
+          animateHeader ? "shadow-xl" : ""
         }`}
       >
         <nav
-          className={` ${
+          className={`${
             state
               ? "absolute inset-x-0 shadow-lg rounded-xl bg-zinc-900 border border-zinc-800 mx-2 pb-5 mt-2 md:shadow-none md:border-none md:mx-2 md:mt-0 md:bg-transparent md:pb-0"
               : ""
@@ -89,8 +90,8 @@ export default () => {
           <div className="custom-screen-lg gap-x-14 items-center md:flex">
             <div
               className={`flex max-w-screen-xl py-10 ${
-                animateHeader && "py-5"
-              } mx-auto items-center justify-between px-2 trasition ease-in-out duration-500`}
+                animateHeader ? "py-5" : ""
+              } mx-auto items-center justify-between px-2 transition ease-in-out duration-500`}
             >
               <Link
                 href="/"
@@ -99,9 +100,6 @@ export default () => {
                 Dopamina{" "}
               </Link>
               <div className="flex md:hidden">
-                <div className="mr-3">
-                  <EditorWithAiButton />
-                </div>
                 <button
                   aria-label="menu button"
                   className="menu-btn group"
@@ -118,36 +116,39 @@ export default () => {
             <div
               className={`flex-1 items-center mt-8 md:mt-0 md:flex ${
                 state ? "block" : "hidden"
-              } `}
+              }`}
             >
-              <ul className="flex-1 justify-end items-center space-y-6 md:flex md:space-x-6 md:space-y-0">
-                {navigation.map((item, idx) => {
-                  return (
-                    <li
-                      key={idx}
-                      className="font-medium text-sm duration-200 flex items-center gap-2 group px-2 lg:px-6 py-1 text-md leading-[22px] md:px-3 hover:text-gray-100 text-gray-300"
+              <ul className="flex-1 justify-end items-center space-y-4 md:flex md:space-x-2 md:space-y-0">
+                {navigation.map((item, idx) => (
+                  <li
+                    key={idx}
+                    className="font-medium text-sm duration-200 flex items-center gap-2 group px-2 lg:px-6 py-1 text-md leading-[22px] md:px-3 hover:text-gray-100 text-gray-300"
+                  >
+                    <Link
+                      href={item.path}
+                      className="block"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        const section = document.querySelector(item.path);
+                        if (section) {
+                          const sectionOffset =
+                            section.getBoundingClientRect().top + window.scrollY;
+                          window.scrollTo({
+                            top: sectionOffset - (window.innerHeight / 2 - section.clientHeight / 2),
+                            behavior: "smooth",
+                          });
+                        }
+                      }}
                     >
-                      <Link href={item.path} className="block">
-                        {item.title}
-                      </Link>
-                      {/* El ícono siempre será visible en mobile */}
-                      <item.icon.type className="w-4 h-4 opacity-100 scale-100 md:opacity-0 md:group-hover:opacity-100 md:scale-50 md:group-hover:scale-125 duration-150" />
-                    </li>
-                  );
-                })}
+                      {item.title}
+                    </Link>
+                    <item.icon.type className="w-4 h-4 opacity-100 scale-100 md:opacity-0 md:group-hover:opacity-100 md:scale-50 md:group-hover:scale-125 duration-150" />
+                  </li>
+                ))}
                 <li>
                   <EditorWithAiButton />
                 </li>
               </ul>
-              {/* <div className="mt-6 md:mt-0">
-                <LinkItem
-                  variant="shiny"
-                  href="https://www.youtube.com/@miedoalexito_uy"
-                  className="w-full block bg-zinc-800 hover:bg-zinc-700 md:bg-shiny"
-                >
-                  Nuestro Canal
-                </LinkItem>
-              </div> */}
             </div>
           </div>
         </nav>

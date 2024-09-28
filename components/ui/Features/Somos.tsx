@@ -39,10 +39,10 @@ export default () => {
   ];
 
   return (
-    <section className="custom-screen relative" id='somos'>
+    <div className="custom-screen relative">
       <div className="relative z-10 mx-auto my-auto min-h-screen justify-center items-center space-y-10 text-center flex flex-col">
       <div className="max-w-xl mx-auto space-y-4 text-center">
-        <h2 className="text-4xl heading">¿Qué es Dopamina?</h2>
+        <h2 className="text-5xl heading">¿Qué es Dopamina?</h2>
         <p className="text-zinc-400 text-xl">
           Un neurotransmisor. Y nosotros hacemos:
         </p>
@@ -53,6 +53,6 @@ export default () => {
         ))}
       </ul>
       </div>
-    </section>
+    </div>
   );
 };

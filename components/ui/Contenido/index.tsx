@@ -6,17 +6,18 @@ import BgGradient from "../BgGradient";
 import HeroBgGradient from "components/HeroBgGradient";
 
 export default () => (
-  <section className="custom-screen relative" id="contenido">
+  <div className="custom-screen relative">
     {/* <HeroBgGradient></HeroBgGradient> */}
     {/* <BgGradient></BgGradient> */}
-    <div className="mx-auto my-auto min-h-screen flex flex-col gap-20 relative z-10 justify-center">
+    <div className="mx-auto my-auto min-h-screen flex flex-col gap-10 relative z-10 justify-center max-w-screen-4xl ">
+      <h4 className="heading mb-5 text-4xl sm:text-6xl text-center">Contenidos</h4>
       <article id="campaDelMiedo">
-        <div className="max-w-screen-xl mx-auto text-gray-600 gap-x-12 items-center justify-between overflow-hidden md:flex md:px-8">
+        <div className="mx-auto text-gray-600 gap-x-12 items-center justify-between overflow-hidden md:flex md:px-8">
           <div className="flex-none space-y-5 px-4 sm:max-w-lg md:px-0 lg:max-w-xl">
             <h1 className="text-sm text-indigo-400 font-medium">
               Martes y Jueves 9h
             </h1>
-            <h2 className="text-white font-bold text-4xl xl:text-5xl">
+            <h2 className="font-bold text-4xl heading xl:text-6xl">
               Campaña del Miedo
             </h2>
             <h4 className="text-white font-bold text-xl xl:text-2xl">
@@ -46,17 +47,17 @@ export default () => (
               </a>
             </div>
           </div>
-          <div className="flex-none mt-14 md:mt-0 md:max-w-xl">
+          <div className="flex-none mt-14 md:mt-0 md:max-w-lg">
             <Image src={cdm1} className=" md:rounded-tl-[108px]" alt="" />
           </div>
         </div>
       </article>
 
       <article id="bufete">
-        <div className="max-w-screen-xl mx-auto text-gray-600 gap-x-12 items-center justify-between overflow-hidden md:flex md:flex-row-reverse md:px-8">
+        <div className="mx-auto text-gray-600 gap-x-12 items-center justify-between overflow-hidden md:flex md:flex-row-reverse md:px-8">
           <div className="flex-none space-y-5 px-4 sm:max-w-lg md:px-0 lg:max-w-xl">
             <h1 className="text-sm text-indigo-400 font-medium">Viernes 18h</h1>
-            <h2 className="text-white font-bold text-4xl xl:text-5xl">
+            <h2 className="font-bold text-4xl heading xl:text-6xl">
               Bufete Sentimental
             </h2>
             <h4 className="text-white font-bold text-xl xl:text-2xl">
@@ -86,7 +87,7 @@ export default () => (
               </a>
             </div>
           </div>
-          <div className="flex-none mt-14 md:mt-0 md:max-w-xl">
+          <div className="flex-none mt-14 md:mt-0 md:max-w-lg">
             <Image src={bufete1} className=" md:rounded-tl-[108px]" alt="" />
           </div>
         </div>
@@ -164,5 +165,5 @@ export default () => (
         </div>
       </div>
     </div>
-  </section>
+  </div>
 );
