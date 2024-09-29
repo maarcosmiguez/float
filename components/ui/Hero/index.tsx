@@ -4,14 +4,19 @@ import HeroBgGradientClient from "./HeroBgGradient.Client";
 import { PlayCircleIcon } from "@heroicons/react/24/solid";
 import { ChevronDoubleDownIcon } from "@heroicons/react/24/solid"; // Asegúrate de tener este ícono en tu proyecto
 import Link from "next/link";
+import Brand from "../Brand";
+import BrandMain from "../BrandMain";
 
 export default () => {
   return (
     <div className="custom-screen relative flex flex-col justify-between min-h-screen pt-10 pb-8"> {/* Ajusta el padding superior e inferior */}
       <div className="relative z-10 max-w-2xl mx-auto my-auto justify-center items-center space-y-4 text-center flex flex-col">
-        <h1 className="text-8xl heading hover:animate-pulse active:animate-spin cursor-pointer">
+        <div className="hover:animate-pulse active:animate-spin cursor-pointer">
+        <BrandMain />
+        </div>
+        {/* <h1 className="text-3xl sm:text-8xl heading hover:animate-pulse active:animate-spin cursor-pointer">
           Dopamina
-        </h1>
+        </h1> */}
         <p className="text-zinc-400">
           Somos un medio uruguayo que te da placer.
         </p>
@@ -31,7 +36,7 @@ export default () => {
         <SocialMedia />
       </div>
       {/* Elemento de scroll */}
-      <div className="flex flex-col items-center mt-auto"> {/* Agregamos mt-auto para empujar el elemento hacia abajo */}
+      <div className="hidden sm:flex flex-col items-center mt-auto"> {/* Agregamos mt-auto para empujar el elemento hacia abajo */}
         <div className="flex flex-col items-center cursor-pointer">
           <p className="text-lg text-zinc-300 animate-pulse">
             Scrollea, como ya sabes.

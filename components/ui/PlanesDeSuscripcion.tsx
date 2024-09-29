@@ -60,7 +60,7 @@ export const PlanesDeSuscripcion = ({
           {plans.map((item, idx) => (
             <div
               key={idx}
-              className={`relative flex-1 flex items-stretch flex-col mt-10 border-2 sm:mt-0 sm:rounded-xl sm:max-w-md  active:animate-ping  ${
+              className={`relative flex-1 flex items-stretch flex-col mt-10 border-2 sm:mt-0 sm:rounded-xl sm:max-w-md   ${
                 item.isMostTop ?
                 "bg-gray-950 border-cyan-400 border-x-0 sm:border-x-2" :
                 item.isMostPop

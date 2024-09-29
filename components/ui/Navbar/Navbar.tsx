@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import LinkItem from "../LinkItem";
 import {
   Bars3Icon,
   XMarkIcon,
@@ -13,6 +12,8 @@ import {
 import Brand from "../Brand";
 import Link from "next/link";
 import NewsletterModal from "../NewsletterModal";
+import BorderGradient from "../Footer/BorderGradient";
+import BgGradient from "../BgGradient";
 
 export default () => {
   const [state, setState] = useState(false);
@@ -83,7 +84,7 @@ export default () => {
         <nav
           className={`${
             state
-              ? "absolute inset-x-0 shadow-lg rounded-xl bg-zinc-900 border border-zinc-800 mx-2 pb-5 mt-2 md:shadow-none md:border-none md:mx-2 md:mt-0 md:bg-transparent md:pb-0"
+              ? "absolute inset-x-0 shadow-lg backdrop-filter backdrop-blur-lg bg-gray-950 pb-5 md:shadow-none md:border-none md:mx-2 md:mt-0 md:bg-transparent md:pb-0 h-screen"
               : ""
           }`}
         >
@@ -93,28 +94,29 @@ export default () => {
                 animateHeader ? "py-5" : ""
               } mx-auto items-center justify-between px-2 transition ease-in-out duration-500`}
             >
+              <BgGradient className="absolute inset-x-0 top-0 mx-auto z-0" />
               <Link
                 href="/"
-                className="text-xl font-bold tracking-tighter text-indigo-400 pr-8"
+                className="text-xl font-bold tracking-tighter text-indigo-400 pr-8 z-10"
               >
-                Dopamina{" "}
+                <Brand />
               </Link>
               <div className="flex md:hidden">
                 <button
                   aria-label="menu button"
-                  className="menu-btn group"
+                  className="menu-btn group z-10"
                   onClick={() => setState(!state)}
                 >
                   {state ? (
-                    <XMarkIcon className="w-5 h-5 pointer-events-none text-zinc-500 group-hover:text-zinc-400" />
+                    <XMarkIcon className="w-5 h-5 pointer-events-none text-zinc-500 group-hover:text-zinc-400 transition-all duration-300 transform scale-110" />
                   ) : (
-                    <Bars3Icon className="w-5 h-5 pointer-events-none text-zinc-500 group-hover:text-zinc-400" />
+                    <Bars3Icon className="w-5 h-5 pointer-events-none text-zinc-500 group-hover:text-zinc-400 transition-all duration-300 transform scale-110 rotate-0" />
                   )}
                 </button>
               </div>
             </div>
             <div
-              className={`flex-1 items-center mt-8 md:mt-0 md:flex ${
+              className={`flex-1 items-center mt-8 md:mt-0 md:flex z-20 ${
                 state ? "block" : "hidden"
               }`}
             >
@@ -122,7 +124,7 @@ export default () => {
                 {navigation.map((item, idx) => (
                   <li
                     key={idx}
-                    className="font-medium text-sm duration-200 flex items-center gap-2 group px-2 lg:px-6 py-1 text-md leading-[22px] md:px-3 hover:text-gray-100 text-gray-300"
+                    className="font-medium text-sm duration-200 flex items-center gap-2 z-30 group px-2 lg:px-6 py-1 text-md leading-[22px] md:px-3 hover:text-gray-100 text-gray-300"
                   >
                     <Link
                       href={item.path}
@@ -132,9 +134,13 @@ export default () => {
                         const section = document.querySelector(item.path);
                         if (section) {
                           const sectionOffset =
-                            section.getBoundingClientRect().top + window.scrollY;
+                            section.getBoundingClientRect().top +
+                            window.scrollY;
                           window.scrollTo({
-                            top: sectionOffset - (window.innerHeight / 2 - section.clientHeight / 2),
+                            top:
+                              sectionOffset -
+                              (window.innerHeight / 2 -
+                                section.clientHeight / 2),
                             behavior: "smooth",
                           });
                         }

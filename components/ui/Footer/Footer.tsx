@@ -20,7 +20,7 @@ export default () => (
             href="/"
             className="text-xl font-bold tracking-tighter text-indigo-400 pr-8"
           >
-            Dopamina{" "}
+            <Brand />
           </Link>{" "}
           <p className="text-sm text-zinc-300">
             Dopamina es una marca registrada. <br />
