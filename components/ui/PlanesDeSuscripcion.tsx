@@ -32,7 +32,7 @@ export const PlanesDeSuscripcion = ({
   ];
 
   return (
-    <div className="custom-screen relative pt-2 sm:pb-6">
+    <div className="custom-screen relative pt-2 sm:pb-6 mt-52 md:mt-0">
       {closeModal && (
         <div className="flex justify-end">
           <button
@@ -85,6 +85,24 @@ export const PlanesDeSuscripcion = ({
               </div>
             </div>
           ))}
+        </div>
+        {/* Sección para aportes únicos */}
+        <div className="mt-10 text-center">
+          <h3 className="text-cyan-400 font-semibold mb-4">Aportá por única vez</h3>
+          <div className=" flex justify-center space-x-4 animation-pulse">
+            <Link href="https://mpago.la/1AjKfBc" className="text-white hover:text-gray-200 duration-150">
+              $200
+            </Link>
+            <Link href="https://mpago.la/2cZEDA9" className="text-white hover:text-gray-200 duration-150">
+              $400
+            </Link>
+            <Link href="https://mpago.la/17NwSeL" className="text-white hover:text-gray-200 duration-150">
+              $800
+            </Link>
+            <Link href="https://mpago.la/2caXqs5" className="text-white hover:text-gray-200 duration-150">
+              $1500
+            </Link>
+          </div>
         </div>
       </div>
     </div>
