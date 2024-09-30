@@ -33,7 +33,7 @@ export default () => {
         </a>
 
         <a
-          href="https://www.instagram.com/dopamina_uy"
+          href="https://www.instagram.com/estoesdopamina"
           target="_blank"
           className="w-10 h-10 flex items-center justify-center rounded-full relative overflow-hidden bg-white shadow-md shadow-gray-200 group transition-all duration-500"
         >
@@ -82,7 +82,7 @@ export default () => {
         </a>
 
         <a
-          href="https://www.x.com/dopamina_uy"
+          href="https://www.x.com/estoesdopamina"
           target="_blank"
           className="w-10 h-10 flex items-center justify-center rounded-full relative overflow-hidden bg-white shadow-md shadow-gray-200 group transition-all duration-300"
         >
@@ -103,7 +103,7 @@ export default () => {
         </a>
 
         <a
-          href="https://www.tiktok.com/dopamina_uy"
+          href="https://www.tiktok.com/@estoesdopamina"
           target="_blank"
           className="w-10 h-10 flex items-center justify-center relative overflow-hidden rounded-full bg-white shadow-md shadow-gray-200 group transition-all duration-300"
         >
@@ -138,7 +138,7 @@ export default () => {
         </a>
 
         <a
-          href="https://www.facebook.com/dopamina_uy"
+          href="https://www.facebook.com/estoesdopamina"
           target="_blank"
           className="w-10 h-10 flex items-center justify-center relative overflow-hidden rounded-full bg-white shadow-md shadow-gray-200 group transition-all duration-300"
         >

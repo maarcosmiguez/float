@@ -1,4 +1,5 @@
 import { XMarkIcon } from "@heroicons/react/24/solid";
+import Link from "next/link";
 
 export const PlanesDeSuscripcion = ({
   closeModal,
@@ -11,12 +12,14 @@ export const PlanesDeSuscripcion = ({
       desc: "Una gran ayuda para que esto exista y crezca.",
       price: 500,
       isMostPop: true,
+      url: "https://www.mercadopago.com.uy/subscriptions/checkout?preapproval_plan_id=2c938084922e71cf01923fe647960477",
     },
     {
       name: "Aportante Starter",
       desc: "Invitanos una cerveza al mes.",
       price: 250,
       isMostPop: false,
+      url: "https://www.mercadopago.com.uy/subscriptions/checkout?preapproval_plan_id=2c938084922e71cf01923fe526bd0476",
     },
     {
       name: "Aportante Black",
@@ -24,6 +27,7 @@ export const PlanesDeSuscripcion = ({
       price: 2000,
       isMostPop: true,
       isMostTop: true,
+      url: "https://www.mercadopago.com.uy/subscriptions/checkout?preapproval_plan_id=2c938084922e71cf01923fe38a000475",
     },
   ];
 
@@ -39,31 +43,31 @@ export const PlanesDeSuscripcion = ({
           </button>
         </div>
       )}
-      { closeModal &&
-      <div
-        className="absolute inset-0 blur-[118px] max-w-lg h-[800px] mx-auto md:max-w-8xl sm:h-[400px]"
-        style={{
-          background:
-            "linear-gradient(106.89deg, rgba(192, 132, 252, 0.11) 15.73%, rgba(14, 165, 233, 0.41) 15.74%, rgba(232, 121, 249, 0.26) 56.49%, rgba(79, 70, 229, 0.4) 115.91%)",
-        }}
-      ></div>
-    }
+      {closeModal && (
+        <div
+          className="absolute inset-0 blur-[118px] max-w-lg h-[800px] mx-auto md:max-w-8xl sm:h-[400px]"
+          style={{
+            background:
+              "linear-gradient(106.89deg, rgba(192, 132, 252, 0.11) 15.73%, rgba(14, 165, 233, 0.41) 15.74%, rgba(232, 121, 249, 0.26) 56.49%, rgba(79, 70, 229, 0.4) 115.91%)",
+          }}
+        ></div>
+      )}
       <div className="relative max-w-screen-xl mx-auto text-gray-300 sm:px-4 md:px-8">
         <div className="max-w-xl mx-auto space-y-2 px-4 sm:text-center sm:px-0">
           <h3 className="text-cyan-400 font-semibold">Aporte mensual</h3>
-          <p className="text-3xl sm:text-4xl heading">
-            Hacete blandengue
+          <p className="text-3xl sm:text-4xl heading">Hacete blandengue</p>
+          <p>
+            Suscripción mensual via Mercado Pago. Precio en pesos uruguayos.
           </p>
-          <p>Suscripción mensual via Mercado Pago. Precio en pesos uruguayos.</p>
         </div>
         <div className="mt-10 justify-center sm:flex">
           {plans.map((item, idx) => (
             <div
               key={idx}
               className={`relative flex-1 flex items-stretch flex-col mt-10 border-2 sm:mt-0 sm:rounded-xl sm:max-w-md   ${
-                item.isMostTop ?
-                "bg-gray-950 border-cyan-400 border-x-0 sm:border-x-2" :
-                item.isMostPop
+                item.isMostTop
+                  ? "bg-gray-950 border-cyan-400 border-x-0 sm:border-x-2"
+                  : item.isMostPop
                   ? "bg-gray-900 border-white border-x-0 sm:border-x-2"
                   : "border-transparent"
               }`}
@@ -76,7 +80,7 @@ export const PlanesDeSuscripcion = ({
                 </div>
                 <p className="text-gray-300 text-xs">{item.desc}</p>
                 <button className="px-3 py-3 mt-3 rounded-lg w-full font-semibold cursor-pointer text-sm duration-150 text-white bg-cyan-500 hover:bg-cyan-600 active:bg-cyan-700 hover:animate-pulse">
-                  Suscribite
+                  <Link href={item.url}>Suscribite</Link>
                 </button>
               </div>
             </div>
