@@ -90,7 +90,8 @@ export default () => (
         </div>
       </article>
 
-      <div className="mt-14 px-4 md:px-8">
+{/* Confian */}
+      {/* <div className="mt-14 px-4 md:px-8">
         <p className="text-center text-sm text-gray-700 font-semibold">
           Confían en nosotros
         </p>
@@ -161,7 +162,7 @@ export default () => (
             />
           </svg>
         </div>
-      </div>
+      </div> */}
     </div>
   </div>
 );
