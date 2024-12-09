@@ -97,23 +97,10 @@ export default () => {
               <BgGradient className="absolute inset-x-0 top-0 mx-auto z-0" />
               <Link
                 href="/"
-                className="text-xl font-bold tracking-tighter text-indigo-400 pr-8 z-10"
+                className="text-xl font-bold tracking-tighter text-indigo-400 pr-8 z-10 hidden md:block"
               >
                 <Brand />
               </Link>
-              <div className="flex md:hidden">
-                <button
-                  aria-label="menu button"
-                  className="menu-btn group z-10"
-                  onClick={() => setState(!state)}
-                >
-                  {state ? (
-                    <XMarkIcon className="w-5 h-5 pointer-events-none text-zinc-500 group-hover:text-zinc-400 transition-all duration-300 transform scale-110" />
-                  ) : (
-                    <Bars3Icon className="w-5 h-5 pointer-events-none text-zinc-500 group-hover:text-zinc-400 transition-all duration-300 transform scale-110 rotate-0" />
-                  )}
-                </button>
-              </div>
             </div>
             <div
               className={`flex-1 items-center mt-8 md:mt-0 md:flex z-20 ${
