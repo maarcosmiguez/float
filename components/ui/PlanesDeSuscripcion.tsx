@@ -48,12 +48,12 @@ export const PlanesDeSuscripcion = ({
             window.paypal
               .Buttons({
                 style: plan.paypalStyle,
-                createSubscription: function (data, actions) {
+                createSubscription: function (data: any, actions: any) {
                   return actions.subscription.create({
                     plan_id: plan.paypalPlanId,
                   });
                 },
-                onApprove: function (data) {
+                onApprove: function (data: any) {
                   alert(`Subscription ID: ${data.subscriptionID}`);
                 },
               })
