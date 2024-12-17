@@ -106,7 +106,7 @@ export default () => {
           <Hero />
         </section>
         <section
-          className="snap-start flex md:hidden items-center min-h-[90vh] justify-center section mb-20"
+          className="snap-start flex items-center min-h-[80vh] justify-center section mb-20"
           id="planes"
         >
           <PlanesDeSuscripcion />
@@ -122,12 +122,6 @@ export default () => {
           id="somos"
         >
           <Somos />
-        </section>
-        <section
-          className="snap-start items-center min-h-[90vh] justify-center section mb-20 hidden md:flex"
-          id="planes"
-        >
-          <PlanesDeSuscripcion />
         </section>
         <Footer />
       </div>

@@ -26,7 +26,7 @@ export default ({
   onCancel,
 }: Props) => {
   return (
-    <div className={`fixed w-full h-full inset-0 z-40 overflow-y-auto ${isActive ? 'transition-opacity duration-500 ease-in-out opacity-100' : 'opacity-0 pointer-events-none'}`}>
+    <div className={`fixed w-full h-full inset-0 z-50 overflow-y-auto ${isActive ? 'transition-opacity duration-500 ease-in-out opacity-100' : 'opacity-0 pointer-events-none'}`}>
       <BlurBackground isActive={true} setActive={onCancel} />
       <div
         className={mergeTW(

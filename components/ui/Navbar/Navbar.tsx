@@ -139,7 +139,7 @@ export default () => {
                   </li>
                 ))}
                 <li>
-                  <EditorWithAiButton />
+                  {/* <EditorWithAiButton /> */}
                 </li>
               </ul>
             </div>

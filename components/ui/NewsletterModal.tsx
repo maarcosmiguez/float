@@ -16,7 +16,7 @@ export default ({
       onCancel={() => closeModal(false)}
     >
       <div className="text-center">
-        <PlanesDeSuscripcion closeModal={closeModal} />
+        {/* <PlanesDeSuscripcion closeModal={closeModal} /> */}
       </div>
     </Modal>
   );
