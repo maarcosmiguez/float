@@ -45,7 +45,7 @@ export const PlanesDeSuscripcion = ({
         if (plan.paypalPlanId) {
           const containerId = `paypal-button-container-${idx}`;
           if (document.getElementById(containerId)) {
-            paypal
+            window.paypal
               .Buttons({
                 style: plan.paypalStyle,
                 createSubscription: function (data, actions) {

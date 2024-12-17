@@ -62,3 +62,9 @@ export type BlogPost = {
 
 export type Dir = "ltr" | "rtl";
 export type TechStack = "jsxTail" | "jsxCss";
+
+export type Paypal = {
+  Buttons: (options: any) => {
+    render: (container: string) => void;
+  };
+};
