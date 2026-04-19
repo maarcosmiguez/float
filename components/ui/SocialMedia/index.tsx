@@ -7,7 +7,7 @@ export default () => {
     <>
       <div className="w-full h-auto py-8 flex items-center justify-center gap-4 flex-wrap">
         <a
-          href="https://www.youtube.com/@miedoalexito_uy"
+          href="https://www.youtube.com/@estoesdopamina"
           target="_blank"
           className="w-10 h-10 flex items-center relative overflow-hidden justify-center rounded-full bg-white shadow-md shadow-gray-200 group transition-all duration-300"
         >
