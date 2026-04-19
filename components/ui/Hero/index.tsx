@@ -21,7 +21,7 @@ export default () => {
           Somos un medio uruguayo que te da placer.
         </p>
 
-        {/* <div className="flex flex-wrap items-center justify-center gap-3">
+        <div className="flex flex-wrap items-center justify-center gap-3">
           <LinkItem
             href="https://www.youtube.com/@estoesdopamina"
             variant="shiny"
@@ -31,7 +31,7 @@ export default () => {
             <PlayCircleIcon className="w-5 h-5" />
             Nuestro Canal de Youtube
           </LinkItem>
-        </div> */}
+        </div>
 
         <SocialMedia />
       </div>
