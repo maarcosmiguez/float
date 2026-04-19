@@ -4,7 +4,7 @@ import "./customize.css";
 import "./prismjs-theme.css";
 import Navbar from "components/ui/Navbar";
 import Footer from "components/ui/Footer";
-import UsermavenSetup from "components/UsermavenSetup";
+// import UsermavenSetup from "components/UsermavenSetup";
 import metatag from "metatag";
 
 const { title, desc, ogImage } = metatag;
