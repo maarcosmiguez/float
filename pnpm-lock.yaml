@@ -126,9 +126,12 @@ importers:
       autoprefixer:
         specifier: ^10.4.0
         version: 10.5.0(postcss@8.5.10)
+<<<<<<< HEAD
       esbuild:
         specifier: ^0.28.0
         version: 0.28.0
+=======
+>>>>>>> 2e52b6b (fixed build post rebuild)
       eslint:
         specifier: 7.32.0
         version: 7.32.0

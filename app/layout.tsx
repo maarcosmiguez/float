@@ -48,7 +48,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
         <meta name="robots" content="index, follow" />
       </head>
-      <UsermavenSetup />
+      {/* <UsermavenSetup /> */}
       <body className={inter.className}>
         <Navbar />
         <main>{children}</main>
