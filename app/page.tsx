@@ -5,6 +5,8 @@ import Contenido from "components/ui/Contenido";
 import Somos from "components/ui/Features/Somos";
 import Hero from "components/ui/Hero";
 import { PlanesDeSuscripcion } from "components/ui/PlanesDeSuscripcion";
+import ConfianEnNosotros from "components/ui/ConfianEnNosotros";
+import Contacto from "components/ui/Contacto";
 import Footer from "components/ui/Footer";
 
 export default () => {
@@ -84,6 +86,8 @@ export default () => {
         >
           <Somos />
         </section>
+        <ConfianEnNosotros />
+        <Contacto />
         <Footer />
       </div>
     </>

@@ -1,4 +1,4 @@
-import { Inter } from "next/font/google";
+import { Anton, Montserrat } from "next/font/google";
 import "./tailwind.css";
 import "./customize.css";
 import "./prismjs-theme.css";
@@ -53,7 +53,15 @@ const organizationJsonLd = {
   ],
 };
 
-const inter = Inter({ subsets: ["latin"] });
+const anton = Anton({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-anton",
+});
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-montserrat",
+});
 
 export default function RootLayout({
   // Layouts must accept a children prop.
@@ -76,7 +84,7 @@ export default function RootLayout({
         />
       </head>
       {/* <UsermavenSetup /> */}
-      <body className={inter.className}>
+      <body className={`${montserrat.className} ${anton.variable} ${montserrat.variable}`}>
         <Navbar />
         <main>{children}</main>
         {/* <Footer /> */}

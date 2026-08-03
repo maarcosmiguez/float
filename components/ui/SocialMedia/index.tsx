@@ -157,6 +157,27 @@ export default () => {
           </svg>
           <div className="absolute top-full left-0 w-full h-full rounded-full bg-blue-500 z-0 transition-all duration-500 group-hover:top-0"></div>
         </a>
+
+        <a
+          href="https://www.linkedin.com/company/dopaminauy"
+          target="_blank"
+          className="w-10 h-10 flex items-center justify-center relative overflow-hidden rounded-full bg-white shadow-md shadow-gray-200 group transition-all duration-300"
+        >
+          <svg
+            className="relative z-10 fill-gray-900 transition-all duration-300 group-hover:fill-white"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+            <path
+              d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.446-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.114 20.452H3.56V9h3.554v11.452z"
+              fill=""
+            />
+          </svg>
+          <div className="absolute top-full left-0 w-full h-full rounded-full bg-[#0A66C2] z-0 transition-all duration-500 group-hover:top-0"></div>
+        </a>
       </div>
     </>
   );

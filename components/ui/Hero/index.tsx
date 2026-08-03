@@ -10,18 +10,25 @@ import BrandMain from "../BrandMain";
 export default () => {
   return (
     <div className="custom-screen relative flex flex-col justify-between min-h-screen pt-10 pb-8"> {/* Ajusta el padding superior e inferior */}
-      <div className="relative z-10 max-w-2xl mx-auto my-auto justify-center items-center space-y-4 text-center flex flex-col">
+      <div className="relative z-10 max-w-2xl mx-auto my-auto justify-center items-center space-y-5 text-center flex flex-col">
         <div className="hover:animate-pulse active:animate-spin cursor-pointer">
         <BrandMain />
         </div>
-        {/* <h1 className="text-3xl sm:text-8xl heading hover:animate-pulse active:animate-spin cursor-pointer">
-          Dopamina
-        </h1> */}
-        <p className="text-zinc-400">
-          Somos un medio uruguayo que te da placer.
+        <h1 className="text-4xl sm:text-6xl heading hover:animate-pulse active:animate-spin cursor-pointer">
+          El estrimin que mira Uruguay
+        </h1>
+        <p className="text-zinc-400 max-w-md">
+          Cuatro programas, una comunidad de blandengues. Noticias, humor y opinión sin careteo, en vivo y grabado para siempre.
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-3">
+          <LinkItem
+            href="#planes"
+            variant="shiny"
+            className="inline-flex w-full justify-center items-center gap-x-2 border border-dopamina-amarillo bg-dopamina-amarillo text-zinc-950 hover:bg-yellow-300 font-semibold duration-200 sm:w-auto"
+          >
+            Hacete blandengue
+          </LinkItem>
           <LinkItem
             href="https://www.youtube.com/@estoesdopamina"
             variant="shiny"
@@ -29,7 +36,7 @@ export default () => {
             target="_blank"
           >
             <PlayCircleIcon className="w-5 h-5" />
-            Nuestro Canal de Youtube
+            Canal de Youtube
           </LinkItem>
         </div>
 

@@ -1,6 +1,7 @@
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import { useEffect } from "react";
+import SociosCounter from "./SociosCounter";
 
 export const PlanesDeSuscripcion = ({
   closeModal,
@@ -79,28 +80,65 @@ export const PlanesDeSuscripcion = ({
       )}
       <div className="relative max-w-screen-xl mx-auto text-gray-300 sm:px-4 md:px-8">
         <div className="max-w-xl mx-auto space-y-2 px-4 sm:text-center sm:px-0">
-          <h3 className="text-cyan-400 font-semibold">Aporte mensual</h3>
+          <h3 className="text-dopamina-amarillo font-semibold">Aporte mensual</h3>
           <p className="text-3xl sm:text-4xl heading">Hacete blandengue</p>
-          <p>Suscripción mensual vía Mercado Pago o PayPal.</p>
+          <p>
+            A Dopamina lo hace grande su gente. Somos un medio independiente y
+            nos banca quien nos ve, no un dueño con agenda. Cada aporte es
+            aire para seguir al aire.
+          </p>
         </div>
-        <div className="mt-10 justify-center sm:flex">
+
+        <div className="mt-10">
+          <SociosCounter />
+        </div>
+
+        {/* Membresía de Youtube: la vía recomendada */}
+        <div className="mt-10 max-w-2xl mx-auto rounded-2xl border-2 border-dopamina-amarillo bg-gradient-to-br from-dopamina-violeta/20 to-transparent p-6 sm:p-8 text-center space-y-3">
+          <span className="inline-block text-xs font-bold tracking-wide uppercase text-dopamina-amarillo">
+            La forma recomendada
+          </span>
+          <p className="text-2xl sm:text-3xl heading">Hacete miembro en Youtube</p>
+          <p className="text-gray-300 max-w-md mx-auto">
+            Un click, sin vueltas: te sumás como miembro del canal y listo. Acceso a contenido exclusivo, insignias y la satisfacción de bancar el medio que mirás.
+          </p>
+          <a
+            href="https://www.youtube.com/@estoesdopamina/join"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold bg-dopamina-amarillo text-zinc-950 hover:bg-yellow-300 duration-150"
+          >
+            Hacerme miembro
+          </a>
+        </div>
+
+        <div className="mt-10 flex items-center gap-4 max-w-2xl mx-auto">
+          <div className="flex-1 h-px bg-zinc-800" />
+          <span className="text-xs text-zinc-500 uppercase tracking-wide">o elegí tu aporte</span>
+          <div className="flex-1 h-px bg-zinc-800" />
+        </div>
+        <p className="text-center text-sm text-gray-400 mt-2">
+          Mercado Pago para Uruguay, PayPal si estás afuera.
+        </p>
+
+        <div className="mt-6 justify-center sm:flex">
           {plans.map((item, idx) => (
             <div
               key={idx}
               className={`relative flex-1 flex items-stretch flex-col mt-10 border-2 sm:mt-0 sm:rounded-xl sm:max-w-md ${
-                idx === 2 ? "bg-gray-950 border-cyan-400" : idx === 0 ? "bg-gray-900 border-white" : "border-transparent"
+                idx === 2 ? "bg-gray-950 border-dopamina-violeta" : idx === 0 ? "bg-gray-900 border-white" : "border-transparent"
               }`}
             >
               <div className="p-8 space-y-6 md:p-8">
                 <span className="text-gray-200 font-medium">{item.name}</span>
-                <div className="text-cyan-400 text-3xl font-semibold">
+                <div className="text-dopamina-amarillo text-3xl font-semibold">
                   ${item.price}
                   <span className="text-xl font-normal">/mes</span>
                 </div>
                 <p className="text-gray-300 text-xs">{item.desc}</p>
                 <div className="flex flex-col gap-1">
                   {/* Botón de Mercado Pago */}
-                  <button className="px-3 py-3 rounded-lg w-full font-semibold cursor-pointer text-sm duration-150 text-white bg-cyan-500 hover:bg-cyan-600 active:bg-cyan-700">
+                  <button className="px-3 py-3 rounded-lg w-full font-semibold cursor-pointer text-sm duration-150 text-white bg-dopamina-violeta hover:bg-violet-600 active:bg-violet-700">
                     <Link href={item.mercadoPagoUrl}>Mercado Pago</Link>
                   </button>
                   {/* Contenedor del botón PayPal (solo si aplica) */}
