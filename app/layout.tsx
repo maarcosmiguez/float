@@ -13,17 +13,44 @@ export const metadata = {
   metadataBase: new URL("https://dopamina.uy"),
   title,
   description: desc,
+  alternates: {
+    canonical: "https://dopamina.uy",
+  },
   openGraph: {
     title,
     description: desc,
     images: ogImage,
     url: "https://dopamina.uy",
+    locale: "es_UY",
+    type: "website",
   },
   twitter: {
+    card: "summary_large_image",
+    site: "@estoesdopamina",
+    creator: "@estoesdopamina",
     title,
     description: desc,
     images: [ogImage],
   },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "NewsMediaOrganization",
+  name: "Dopamina",
+  url: "https://dopamina.uy",
+  logo: "https://dopamina.uy/logo.svg",
+  sameAs: [
+    "https://www.youtube.com/@estoesdopamina",
+    "https://www.instagram.com/estoesdopamina",
+    "https://x.com/estoesdopamina",
+    "https://www.tiktok.com/@estoesdopamina",
+    "https://www.facebook.com/estoesdopamina",
+  ],
 };
 
 const inter = Inter({ subsets: ["latin"] });
@@ -36,17 +63,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="bg-zinc-950">
+    <html lang="es" className="bg-zinc-950">
       <head>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=3"
         />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@float_ui" />
-        <meta name="twitter:creator" content="@float_ui" />
         <link rel="icon" href="/favicon.ico" />
-        <meta name="robots" content="index, follow" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
       </head>
       {/* <UsermavenSetup /> */}
       <body className={inter.className}>

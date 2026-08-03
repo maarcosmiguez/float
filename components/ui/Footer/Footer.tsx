@@ -44,7 +44,7 @@ export default () => (
       </div>
       <div className="text-sm custom-screen text-center border-t border-zinc-800">
         <div className="text-zinc-300 py-8">
-          &copy; 2024 - Dopamina - Para más placer
+          &copy; {new Date().getFullYear()} - Dopamina - Para más placer
         </div>
       </div>
     </section>
