@@ -20,7 +20,7 @@ export default () => {
           El estrimin que mira Uruguay
         </h1>
         <p className="text-zinc-400 max-w-md">
-          Cuatro programas, una comunidad de blandengues. Noticias, humor y opinión sin careteo, en vivo y grabado para siempre.
+          Cuatro programas y una gran comunidad. Noticias, entretenimiento y opinión informada por streaming y on demand.
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-3">

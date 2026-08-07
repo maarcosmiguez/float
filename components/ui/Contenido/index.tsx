@@ -3,7 +3,6 @@ import posterPoco from "public/poster-psh.jpg";
 import posterCampana from "public/poster-cdm.jpg";
 import posterBufete from "public/poster-bs.jpg";
 import posterTodosIguales from "public/poster-tsi.jpg";
-import grillaSemanal from "public/grilla-semanal.jpg";
 
 const PlayBadge = () => (
   <div className="hidden md:flex absolute top-[15px] right-[50px] w-10 h-10 items-center overflow-hidden justify-center rounded-full bg-white shadow-md shadow-gray-200 group transition-all duration-300">
@@ -31,47 +30,47 @@ const PlayBadge = () => (
 
 const shows = [
   {
-    id: "pocoSeHabla",
-    day: "Lunes y Miércoles 9h",
-    title: "Poco Se Habla",
-    hosts: "con Ignacio López, Claudia Umpiérrez y Aníbal Banquero",
-    desc: "El magazine del deporte en Uruguay: repaso de la fecha, entrevistas y análisis con la cuota justa de humor. Diversidad de voces, cero solemnidad.",
-    image: posterPoco,
-    href: "https://www.youtube.com/@estoesdopamina",
-    accent: "text-dopamina-cian",
-    reverse: false,
-  },
-  {
     id: "campaDelMiedo",
-    day: "Martes y Jueves 9h",
+    day: "Martes y Jueves 9:00 a 10:30h",
     title: "Campaña del Miedo",
-    hosts: "con Marcos Casas y Fer Kosak",
-    desc: "El streaming que le faltaba a esta campaña electoral. Información, opinión, frescura, encanto, entrevistas, y muchas cosas más que nuestras mamás nos dijeron que tenemos. Tal vez nos recuerdes de algún clip que te pasaron para pegarle al Boca o a Sanjurjo.",
+    hosts: "con Fer Kosak y Brian Majlin",
+    desc: "El noticiero de la mañana del streaming en Uruguay: análisis político dinámico, entrevistas a todo el arco político y el humor justo para arrancar el día informado. Tercera temporada al aire.",
     image: posterCampana,
     href: "https://youtube.com/playlist?list=PLNFlrAum2DnpP4eg2AcKF_5C5RwSBV2c9&si=NetBKh3qxCX46xcJ",
     accent: "text-dopamina-violeta",
-    reverse: true,
-  },
-  {
-    id: "bufete",
-    day: "Viernes 9h a 10:30h",
-    title: "Bufete Sentimental",
-    hosts: "con Fer Kosak e Irene Dalponte",
-    desc: "El podcast de cornudas menos cornudo que vas a escuchar. Abordamos temas lindantes al amor pero con una perspectiva académica, política, social que te va a hacer decir ¿cómo son tan graciosas, inteligentes, ocurrentes y lindas de cara? Increíble pero es así.",
-    image: posterBufete,
-    href: "https://www.youtube.com/playlist?list=PLNFlrAum2DnpbNEFwWwIGGtPpFdBie1EN",
-    accent: "text-dopamina-dorado",
     reverse: false,
   },
   {
     id: "todosIguales",
-    day: "Martes y Miércoles 20h",
+    day: "Martes y Jueves 20:00 a 21:30h",
     title: "Todos Iguales",
-    hosts: "con Fede Pérez, Marcos Casas y Maca Saavedra",
+    hosts: "con Marcos Casas, Fede Pérez y Maca Saavedra",
     desc: "El late night del streaming de Uruguay. Información, entrevistas, informes especiales y humor inteligente para cerrar el día.",
     image: posterTodosIguales,
-    href: "https://www.youtube.com/@estoesdopamina",
+    href: "https://www.youtube.com/playlist?list=PLNFlrAum2DnpKbUX_8kf8X1ysvdlk59Fo",
     accent: "text-dopamina-rojo",
+    reverse: true,
+  },
+  {
+    id: "pocoSeHabla",
+    day: "Lunes y Miércoles 9:00 a 10:30h",
+    title: "Poco Se Habla",
+    hosts: "con Claudia Umpiérrez, Ignacio López y Aníbal Banquero",
+    desc: "El magazine del deporte en Uruguay: repaso de la fecha, entrevistas y análisis con la cuota justa de humor. Diversidad de voces, cero solemnidad.",
+    image: posterPoco,
+    href: "https://www.youtube.com/playlist?list=PLNFlrAum2DnoP-i4ohOh9jNDtJbR45DM4",
+    accent: "text-dopamina-cian",
+    reverse: false,
+  },
+  {
+    id: "bufete",
+    day: "Viernes 9:00 a 10:30h",
+    title: "Bufete Sentimental",
+    hosts: "con Fer Kosak e Irene Dalponte",
+    desc: "El podcast de coyuntura sentimental: vínculos, deseo y cultura analizados con marco académico, mirada social y humor. Ya en su sexta temporada.",
+    image: posterBufete,
+    href: "https://www.youtube.com/playlist?list=PLNFlrAum2DnpbNEFwWwIGGtPpFdBie1EN",
+    accent: "text-dopamina-dorado",
     reverse: true,
   },
 ];
@@ -92,7 +91,7 @@ export default () => (
           >
             <div className="flex-none space-y-0 sm:space-y-1 px-4 sm:max-w-lg md:px-0 lg:max-w-xl">
               <h1 className={`text-sm font-medium ${show.accent}`}>{show.day}</h1>
-              <h2 className="font-bold text-2xl py-2 sm:py-0 sm:text-4xl heading text-white xl:text-5xl">
+              <h2 className="text-5xl py-2 sm:py-0 sm:text-6xl heading text-white xl:text-7xl">
                 {show.title}
               </h2>
               <h4 className="text-gray-200 font-bold text-lg xl:text-2xl hidden sm:block">
@@ -118,19 +117,6 @@ export default () => (
         </article>
       ))}
 
-      {/* Grilla semanal: mismo material del dossier, otra forma de leer la programación */}
-      <div className="px-4 sm:px-8 mt-6">
-        <p className="text-center text-sm text-zinc-500 uppercase tracking-wide mb-4">
-          Así se arma la semana
-        </p>
-        <div className="max-w-4xl mx-auto rounded-2xl overflow-hidden border border-zinc-800">
-          <Image
-            src={grillaSemanal}
-            alt="Grilla semanal de programación de Dopamina"
-            className="w-full h-auto"
-          />
-        </div>
-      </div>
     </div>
   </div>
 );

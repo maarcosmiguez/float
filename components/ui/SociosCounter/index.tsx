@@ -42,7 +42,7 @@ export default () => {
         {display.toLocaleString("es-UY")}
       </span>
       <span className="text-zinc-400 text-sm tracking-wide">
-        blandengues que aportaron hasta ayer
+        suscriptores mensuales hasta ayer
       </span>
     </div>
   );

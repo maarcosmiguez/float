@@ -82,11 +82,7 @@ export const PlanesDeSuscripcion = ({
         <div className="max-w-xl mx-auto space-y-2 px-4 sm:text-center sm:px-0">
           <h3 className="text-dopamina-amarillo font-semibold">Aporte mensual</h3>
           <p className="text-3xl sm:text-4xl heading">Hacete blandengue</p>
-          <p>
-            A Dopamina lo hace grande su gente. Somos un medio independiente y
-            nos banca quien nos ve, no un dueño con agenda. Cada aporte es
-            aire para seguir al aire.
-          </p>
+          <p>A Dopamina lo hace grande su gente.</p>
         </div>
 
         <div className="mt-10">
