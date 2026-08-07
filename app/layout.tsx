@@ -4,6 +4,7 @@ import "./customize.css";
 import "./prismjs-theme.css";
 import Navbar from "components/ui/Navbar";
 import Footer from "components/ui/Footer";
+import ProgressRail from "components/ui/ProgressRail";
 // import UsermavenSetup from "components/UsermavenSetup";
 import metatag from "metatag";
 
@@ -85,6 +86,7 @@ export default function RootLayout({
       </head>
       {/* <UsermavenSetup /> */}
       <body className={`${montserrat.className} ${anton.variable} ${montserrat.variable}`}>
+        <ProgressRail />
         <Navbar />
         <main>{children}</main>
         {/* <Footer /> */}

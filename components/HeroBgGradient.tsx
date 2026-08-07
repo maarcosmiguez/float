@@ -18,7 +18,7 @@ export default ({
       <path
         d="M229.488 -100.921L557.588 270.669L419.698 348.86L95.3076 17.5558L229.488 -100.921Z"
         fill="url(#paint0_linear_3249_6957)"
-        fill-opacity="0.5"
+        fillOpacity="0.5"
       />
     </g>
     <defs>
@@ -29,9 +29,9 @@ export default ({
         width="652.28"
         height="639.78"
         filterUnits="userSpaceOnUse"
-        color-interpolation-filters="sRGB"
+        colorInterpolationFilters="sRGB"
       >
-        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+        <feFlood floodOpacity="0" result="BackgroundImageFix" />
         <feBlend
           mode="normal"
           in="SourceGraphic"
@@ -51,11 +51,11 @@ export default ({
         y2="203.521"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#0EA5E9" />
-        <stop offset="0.253305" stop-color="#9333EA" stop-opacity="0.02" />
+        <stop stopColor="#0EA5E9" />
+        <stop offset="0.253305" stopColor="#9333EA" stopOpacity="0.02" />
         <stop offset="0.470899" />
-        <stop offset="0.704177" stop-color="#064967" stop-opacity="0.559106" />
-        <stop offset="1" stop-color="#0EA5E9" stop-opacity="0" />
+        <stop offset="0.704177" stopColor="#064967" stopOpacity="0.559106" />
+        <stop offset="1" stopColor="#0EA5E9" stopOpacity="0" />
       </linearGradient>
     </defs>
   </svg>

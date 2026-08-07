@@ -4,8 +4,10 @@ import HeroBgGradientClient from "./HeroBgGradient.Client";
 import { PlayCircleIcon } from "@heroicons/react/24/solid";
 import { ChevronDoubleDownIcon } from "@heroicons/react/24/solid"; // Asegúrate de tener este ícono en tu proyecto
 import Link from "next/link";
+import Image from "next/image";
 import Brand from "../Brand";
 import BrandMain from "../BrandMain";
+import equipo from "public/equipo-2026.jpg";
 
 export default () => {
   return (
@@ -42,6 +44,21 @@ export default () => {
 
         <SocialMedia />
       </div>
+
+      <div className="relative z-10 max-w-4xl w-full mx-auto mt-10">
+        <div className="rounded-2xl overflow-hidden border border-zinc-800">
+          <Image
+            src={equipo}
+            alt="El equipo de Dopamina"
+            className="w-full h-auto"
+            priority
+          />
+        </div>
+        <p className="text-center text-xs text-zinc-500 mt-3 uppercase tracking-wide">
+          La gente de Dopamina
+        </p>
+      </div>
+
       {/* Elemento de scroll */}
       <div className="hidden sm:flex flex-col items-center mt-auto"> {/* Agregamos mt-auto para empujar el elemento hacia abajo */}
         <div className="flex flex-col items-center cursor-pointer">

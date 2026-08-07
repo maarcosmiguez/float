@@ -1,8 +1,8 @@
 import Image from "next/image";
-import posterPoco from "public/poster-poco-se-habla.jpg";
-import posterCampana from "public/poster-campana-del-miedo.jpg";
-import posterBufete from "public/poster-bufete-sentimental.jpg";
-import posterTodosIguales from "public/poster-todos-iguales.jpg";
+import posterPoco from "public/poster-psh.jpg";
+import posterCampana from "public/poster-cdm.jpg";
+import posterBufete from "public/poster-bs.jpg";
+import posterTodosIguales from "public/poster-tsi.jpg";
 import grillaSemanal from "public/grilla-semanal.jpg";
 
 const PlayBadge = () => (

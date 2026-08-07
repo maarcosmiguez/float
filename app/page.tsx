@@ -61,9 +61,9 @@ export default () => {
 
   return (
     <>
-      <div className="snap-y snap-mandatory overflow-y-scroll scrollbar-hide min-h-screen">
+      <div className="snap-y snap-proximity overflow-y-scroll scrollbar-hide min-h-screen">
         <section
-          className="snap-start flex items-center min-h-[100vh] justify-center section visible"
+          className="snap-start flex items-center min-h-[100vh] justify-center section visible pt-16"
           id="home"
         >
           <Hero />
