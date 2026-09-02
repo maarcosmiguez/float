@@ -10,6 +10,13 @@ export const PlanesDeSuscripcion = ({
 }) => {
   const plans = [
     {
+      name: "Aportante Starter",
+      desc: "Invitanos una cerveza al mes.",
+      price: 250,
+      mercadoPagoUrl:
+        "https://www.mercadopago.com.uy/subscriptions/checkout?preapproval_plan_id=2c938084922e71cf01923fe526bd0476",
+    },
+    {
       name: "Aportante Premium",
       desc: "Una gran ayuda para que esto exista y crezca.",
       price: 500,
@@ -17,13 +24,6 @@ export const PlanesDeSuscripcion = ({
         "https://www.mercadopago.com.uy/subscriptions/checkout?preapproval_plan_id=2c938084922e71cf01923fe647960477",
       paypalPlanId: "P-2SL43044JV839462EM5Q3EUA",
       paypalStyle: { shape: "rect", color: "silver", layout: "horizontal", label: "subscribe" },
-    },
-    {
-      name: "Aportante Starter",
-      desc: "Invitanos una cerveza al mes.",
-      price: 250,
-      mercadoPagoUrl:
-        "https://www.mercadopago.com.uy/subscriptions/checkout?preapproval_plan_id=2c938084922e71cf01923fe526bd0476",
     },
     {
       name: "Aportante Black",
@@ -67,7 +67,7 @@ export const PlanesDeSuscripcion = ({
   }, []);
 
   return (
-    <div className="custom-screen relative pt-2 sm:pb-6 mt-52 md:mt-0">
+    <div className="custom-screen relative pt-2 sm:pb-6">
       {closeModal && (
         <div className="flex justify-end">
           <button
@@ -117,14 +117,23 @@ export const PlanesDeSuscripcion = ({
           Mercado Pago para Uruguay, PayPal si estás afuera.
         </p>
 
-        <div className="mt-6 justify-center sm:flex">
+        <div className="mt-6 justify-center gap-4 sm:flex">
           {plans.map((item, idx) => (
             <div
               key={idx}
-              className={`relative flex-1 flex items-stretch flex-col mt-10 border-2 sm:mt-0 sm:rounded-xl sm:max-w-md ${
-                idx === 2 ? "bg-gray-950 border-dopamina-violeta" : idx === 0 ? "bg-gray-900 border-white" : "border-transparent"
+              className={`relative flex-1 flex items-stretch flex-col mt-10 border sm:mt-0 rounded-xl sm:max-w-md ${
+                idx === 2
+                  ? "bg-zinc-950 border-dopamina-violeta"
+                  : idx === 1
+                  ? "bg-zinc-900 border-dopamina-amarillo border-2"
+                  : "bg-zinc-900/60 border-zinc-800"
               }`}
             >
+              {idx === 1 && (
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-dopamina-amarillo text-zinc-950 text-[0.66rem] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full whitespace-nowrap">
+                  El más elegido
+                </span>
+              )}
               <div className="p-8 space-y-6 md:p-8">
                 <span className="text-gray-200 font-medium">{item.name}</span>
                 <div className="text-dopamina-amarillo text-3xl font-semibold">

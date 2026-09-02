@@ -36,7 +36,7 @@ export default () => {
   return (
     <div className="flex flex-col items-center gap-1 text-center">
       <span
-        className="heading text-6xl sm:text-7xl tabular-nums"
+        className="font-display text-dopamina-amarillo text-6xl sm:text-8xl tabular-nums"
         style={{ fontVariantNumeric: "tabular-nums" }}
       >
         {display.toLocaleString("es-UY")}

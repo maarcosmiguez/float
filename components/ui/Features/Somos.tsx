@@ -40,7 +40,7 @@ export default () => {
 
   return (
     <div className="custom-screen relative">
-      <div className="relative z-10 mx-auto my-auto mt-60 md:mt-0 min-h-screen justify-center items-center space-y-10 text-center flex flex-col">
+      <div className="relative z-10 mx-auto my-auto justify-center items-center space-y-10 text-center flex flex-col">
       <div className="max-w-xl mx-auto space-y-4 text-center">
         <h2 className="text-5xl heading">¿Qué es la Dopamina?</h2>
         <p className="text-zinc-400 text-xl">

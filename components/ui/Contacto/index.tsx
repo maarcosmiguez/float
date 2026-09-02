@@ -17,10 +17,11 @@ export default () => (
         </a>
       </div>
       <div className="rounded-2xl overflow-hidden border border-zinc-800 h-64 sm:h-72">
+        {/* Filtro invert+hue para que el mapa respete el tema oscuro del sitio */}
         <iframe
           title="Dopamina Uruguay en Google Maps"
           src="https://www.google.com/maps?q=Dopamina+Uruguay&output=embed"
-          className="w-full h-full border-0"
+          className="w-full h-full border-0 [filter:invert(90%)_hue-rotate(180deg)_contrast(0.92)]"
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
         />

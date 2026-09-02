@@ -1,25 +1,40 @@
 import LinkItem from "../LinkItem";
 import SocialMedia from "../SocialMedia/index";
-import HeroBgGradientClient from "./HeroBgGradient.Client";
 import { PlayCircleIcon } from "@heroicons/react/24/solid";
-import { ChevronDoubleDownIcon } from "@heroicons/react/24/solid"; // Asegúrate de tener este ícono en tu proyecto
-import Link from "next/link";
-import Image from "next/image";
-import Brand from "../Brand";
 import BrandMain from "../BrandMain";
-import equipo from "public/equipo-2026.jpg";
 
 export default () => {
   return (
-    <div className="custom-screen relative flex flex-col justify-between min-h-screen pt-10 pb-8"> {/* Ajusta el padding superior e inferior */}
-      <div className="relative z-10 max-w-2xl mx-auto my-auto justify-center items-center space-y-5 text-center flex flex-col">
-        <div className="hover:animate-pulse active:animate-spin cursor-pointer">
-        <BrandMain />
+    <div className="relative w-full overflow-hidden border-b border-zinc-800">
+      {/* Video loop de marca (paredes tipográficas). Oculto si el usuario pide menos movimiento. */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover opacity-[0.34] pointer-events-none motion-reduce:hidden"
+        autoPlay
+        muted
+        loop
+        playsInline
+        poster="/loop-hero-poster.jpg"
+        src="/loop-hero.mp4"
+      />
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse 70% 60% at 50% 45%, transparent 30%, rgba(9,9,11,0.88) 100%), linear-gradient(180deg, rgba(9,9,11,0.55) 0%, rgba(9,9,11,0.25) 40%, rgba(9,9,11,0.94) 100%)",
+        }}
+      />
+
+      <div className="custom-screen relative z-10 flex flex-col items-center text-center gap-6 pt-32 pb-28">
+        <div className="hover:animate-pulse active:animate-spin cursor-pointer max-w-[260px]">
+          <BrandMain />
         </div>
-        <h1 className="text-4xl sm:text-6xl heading hover:animate-pulse active:animate-spin cursor-pointer">
-          El estrimin que mira Uruguay
+        <h1
+          className="font-display uppercase text-white leading-[0.94] max-w-[13ch]"
+          style={{ fontSize: "clamp(3.2rem, 11vw, 7rem)", textShadow: "0 4px 40px rgba(0,0,0,0.55)" }}
+        >
+          El estrimin que mira <span className="text-dopamina-amarillo">Uruguay</span>
         </h1>
-        <p className="text-zinc-400 max-w-md">
+        <p className="text-zinc-400 max-w-lg text-lg">
           Cuatro programas y una gran comunidad. Noticias, entretenimiento y opinión informada por streaming y on demand.
         </p>
 
@@ -44,31 +59,6 @@ export default () => {
 
         <SocialMedia />
       </div>
-
-      <div className="relative z-10 max-w-4xl w-full mx-auto mt-10">
-        <div className="rounded-2xl overflow-hidden border border-zinc-800">
-          <Image
-            src={equipo}
-            alt="El equipo de Dopamina"
-            className="w-full h-auto"
-            priority
-          />
-        </div>
-        <p className="text-center text-xs text-zinc-500 mt-3 uppercase tracking-wide">
-          La gente de Dopamina
-        </p>
-      </div>
-
-      {/* Elemento de scroll */}
-      <div className="hidden sm:flex flex-col items-center mt-auto"> {/* Agregamos mt-auto para empujar el elemento hacia abajo */}
-        <div className="flex flex-col items-center cursor-pointer">
-          <p className="text-lg text-zinc-300 animate-pulse">
-            Scrollea, como ya sabes.
-          </p>
-          <ChevronDoubleDownIcon className="w-8 h-8 text-zinc-300 animate-bounce mt-4" />
-        </div>
-      </div>
-      <HeroBgGradientClient />
     </div>
   );
 };
