@@ -13,6 +13,7 @@ export default () => {
         muted
         loop
         playsInline
+        preload="metadata"
         poster="/loop-hero-poster.jpg"
         src="/loop-hero.mp4"
       />
