@@ -1,7 +1,7 @@
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import { useEffect } from "react";
-import SociosCounter from "./SociosCounter";
+// import SociosCounter from "./SociosCounter";
 
 export const PlanesDeSuscripcion = ({
   closeModal,
@@ -85,9 +85,11 @@ export const PlanesDeSuscripcion = ({
           <p>A Dopamina lo hace grande su gente.</p>
         </div>
 
-        <div className="mt-10">
+        {/* Contador de suscriptores oculto hasta que sea dinámico con datos reales.
+            Para reactivarlo: descomentar esto y el import de SociosCounter. */}
+        {/* <div className="mt-10">
           <SociosCounter />
-        </div>
+        </div> */}
 
         {/* Membresía de Youtube: la vía recomendada */}
         <div className="mt-10 max-w-2xl mx-auto rounded-2xl border-2 border-dopamina-amarillo bg-gradient-to-br from-dopamina-violeta/20 to-transparent p-6 sm:p-8 text-center space-y-3">
