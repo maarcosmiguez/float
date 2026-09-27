@@ -33,7 +33,7 @@ const shows = [
     id: "pocoSeHabla",
     day: "Lunes y miércoles · 9:00 a 10:30h",
     title: "Poco Se Habla",
-    hosts: "con Claudia Umpiérrez, Ignacio López y Aníbal Banquero",
+    hosts: "con Claudia Umpiérrez, el Bocha y Aníbal Banquero",
     desc: "El magazine del deporte en Uruguay: repaso de la fecha, entrevistas y análisis con la cuota justa de humor. Diversidad de voces, cero solemnidad.",
     image: showPsh,
     href: "https://www.youtube.com/playlist?list=PLNFlrAum2DnoP-i4ohOh9jNDtJbR45DM4",
@@ -103,7 +103,7 @@ export default () => {
   return (
     <div className="custom-screen relative py-20">
       <div className="text-center mb-12">
-        <p className="text-xs font-bold tracking-widest uppercase text-zinc-500">
+        <p className="text-xs font-bold tracking-widest uppercase text-dopamina-tinta-3">
           Grilla y programación
         </p>
         <h2 className="font-display uppercase text-white text-4xl sm:text-5xl mt-2">
@@ -117,7 +117,7 @@ export default () => {
             key={show.id}
             id={show.id}
             data-showcard
-            className={`group relative rounded-2xl border border-zinc-800 bg-zinc-900/70 overflow-hidden
+            className={`group relative rounded-[18px] border border-dopamina-linea bg-dopamina-panel overflow-hidden
               opacity-0 translate-y-6 transition-all duration-500 ease-out
               hover:-translate-y-1.5 hover:rotate-0
               motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:transition-none motion-reduce:rotate-0
@@ -141,7 +141,7 @@ export default () => {
             <a href={show.href} target="_blank" rel="noopener noreferrer" className="block aspect-video">
               <Image
                 src={show.image}
-                alt={`${show.title} — ${show.hosts}`}
+                alt={`${show.title}, ${show.hosts}`}
                 className="w-full h-full"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
@@ -154,8 +154,8 @@ export default () => {
                 {show.day}
               </span>
               <p className="font-display uppercase text-white text-2xl mt-1">{show.title}</p>
-              <p className="text-sm text-zinc-400 font-semibold mt-1">{show.hosts}</p>
-              <p className="text-sm text-zinc-400 leading-relaxed mt-2">{show.desc}</p>
+              <p className="text-sm text-dopamina-tinta-2 font-semibold mt-1">{show.hosts}</p>
+              <p className="text-sm text-dopamina-tinta-2 leading-relaxed mt-2">{show.desc}</p>
               <a
                 href={show.href}
                 target="_blank"

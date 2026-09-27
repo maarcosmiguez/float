@@ -13,6 +13,15 @@ module.exports = {
     extend: {
       colors: {
         dopamina: {
+          // Paleta de superficie de la maqueta "estudio en vivo" (artefacto
+          // fase 2a): fondo violeta oscuro, no zinc neutro.
+          fondo: "#0A0812",
+          panel: "#14101F",
+          "panel-2": "#1C1629",
+          linea: "rgba(245,243,250,0.10)",
+          tinta: "#F5F3FA",
+          "tinta-2": "#B7B0C4",
+          "tinta-3": "#7D7690",
           violeta: "#7C3AED",
           amarillo: "#F9E400",
           celeste: "#3FC6FF",

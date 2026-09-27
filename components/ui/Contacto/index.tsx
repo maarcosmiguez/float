@@ -6,7 +6,7 @@ export default () => (
           Contacto
         </p>
         <p className="text-3xl heading">Hablemos</p>
-        <p className="text-zinc-400">
+        <p className="text-dopamina-tinta-2">
           Prensa, pauta, propuestas o simplemente para saludar.
         </p>
         <a
@@ -16,7 +16,7 @@ export default () => (
           dopaminauruguay@gmail.com
         </a>
       </div>
-      <div className="rounded-2xl overflow-hidden border border-zinc-800 h-64 sm:h-72">
+      <div className="rounded-[18px] overflow-hidden border border-dopamina-linea h-64 sm:h-72">
         {/* Filtro invert+hue para que el mapa respete el tema oscuro del sitio */}
         <iframe
           title="Dopamina Uruguay en Google Maps"

@@ -6,7 +6,7 @@ import AireChip from "../aire/AireChip";
 
 export default () => {
   return (
-    <div className="relative w-full overflow-hidden border-b border-zinc-800">
+    <div className="relative w-full overflow-hidden border-b border-dopamina-linea">
       {/* Video loop de marca (paredes tipográficas). Oculto si el usuario pide menos movimiento. */}
       <video
         className="absolute inset-0 w-full h-full object-cover opacity-[0.34] pointer-events-none motion-reduce:hidden"
@@ -22,7 +22,7 @@ export default () => {
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 70% 60% at 50% 45%, transparent 30%, rgba(9,9,11,0.88) 100%), linear-gradient(180deg, rgba(9,9,11,0.55) 0%, rgba(9,9,11,0.25) 40%, rgba(9,9,11,0.94) 100%)",
+            "radial-gradient(ellipse 70% 60% at 50% 45%, transparent 30%, rgba(10,8,18,0.88) 100%), linear-gradient(180deg, rgba(10,8,18,0.55) 0%, rgba(10,8,18,0.25) 40%, rgba(10,8,18,0.94) 100%)",
         }}
       />
 
@@ -37,7 +37,7 @@ export default () => {
         >
           El estrimin que mira <span className="text-dopamina-celeste">Uruguay</span>
         </h1>
-        <p className="text-zinc-400 max-w-lg text-lg">
+        <p className="text-dopamina-tinta-2 max-w-lg text-lg">
           Cuatro programas y una gran comunidad. Noticias, entretenimiento y opinión informada por streaming y on demand.
         </p>
 
@@ -52,7 +52,7 @@ export default () => {
           <LinkItem
             href="https://www.youtube.com/@estoesdopamina"
             variant="shiny"
-            className="inline-flex w-full justify-center items-center gap-x-2 border border-zinc-800 hover:border-zinc-600 bg-zinc-950 hover:text-zinc-100 duration-200 sm:w-auto"
+            className="inline-flex w-full justify-center items-center gap-x-2 border border-dopamina-linea hover:border-dopamina-tinta-3 bg-dopamina-fondo hover:text-zinc-100 duration-200 sm:w-auto"
             target="_blank"
           >
             <PlayCircleIcon className="w-5 h-5" />

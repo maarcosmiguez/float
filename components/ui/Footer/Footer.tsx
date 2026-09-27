@@ -4,6 +4,7 @@ import Brand from "components/ui/Brand";
 import BorderGradient from "./BorderGradient";
 import BgGradient from "./BgGradient";
 import SocialMedia from "../SocialMedia";
+import RelojMvd from "../aire/RelojMvd";
 
 const navigation = [
   { name: "Inicio", href: "#" }, // Cambiar href a "#" para ir al principio de la página
@@ -42,9 +43,9 @@ export default () => (
         </div>
         </div>
       </div>
-      <div className="text-sm custom-screen text-center border-t border-zinc-800">
-        <div className="text-zinc-300 py-8">
-          &copy; {new Date().getFullYear()} Dopamina · El estrimin que mira Uruguay
+      <div className="text-sm custom-screen text-center border-t border-dopamina-linea">
+        <div className="text-dopamina-tinta-2 py-8">
+          &copy; {new Date().getFullYear()} Dopamina · El estrimin que mira Uruguay · <RelojMvd /> Montevideo
         </div>
       </div>
     </section>

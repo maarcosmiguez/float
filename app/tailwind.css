@@ -4,13 +4,13 @@
 
 @layer components {
   .bg-shiny {
-    @apply border border-zinc-800;
-    background: linear-gradient(180deg, #27272a 0%, rgba(15, 23, 42, 0) 100%);
+    @apply border border-dopamina-linea;
+    background: linear-gradient(180deg, #1c1629 0%, rgba(10, 8, 18, 0) 100%);
   }
 
   .bg-shiny:hover {
     @apply duration-200;
-    background: linear-gradient(180deg, #27272a 10%, rgba(15, 23, 42, 0) 100%);
+    background: linear-gradient(180deg, #1c1629 10%, rgba(10, 8, 18, 0) 100%);
   }
 
   .heading {

@@ -9,7 +9,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 // de aire), links de las secciones reales y CTA de membresía siempre visible.
 const navigation = [
   { title: "Programación", path: "#contenido" },
-  { title: "Dónde encontrarnos", path: "#ultimo" },
+  { title: "Lo último", path: "#ultimo" },
   { title: "La Dopamina", path: "#somos" },
   { title: "Contacto", path: "#contacto" },
 ];
@@ -18,7 +18,7 @@ export default () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-zinc-800 bg-zinc-950/75 backdrop-blur-lg pt-2">
+    <header className="sticky top-0 z-40 border-b border-dopamina-linea bg-dopamina-fondo/75 backdrop-blur-lg pt-2">
       <nav className="custom-screen flex items-center justify-between h-14">
         <Link href="/" className="shrink-0">
           <Brand />
@@ -29,7 +29,7 @@ export default () => {
             <a
               key={item.path}
               href={item.path}
-              className="text-[0.8rem] font-semibold uppercase tracking-wider text-zinc-400 hover:text-white duration-150"
+              className="text-[0.8rem] font-semibold uppercase tracking-wider text-dopamina-tinta-2 hover:text-white duration-150"
             >
               {item.title}
             </a>
@@ -52,7 +52,7 @@ export default () => {
       </nav>
 
       {open && (
-        <div className="md:hidden border-t border-zinc-800 bg-zinc-950/95 backdrop-blur px-6 py-4 flex flex-col gap-4">
+        <div className="md:hidden border-t border-dopamina-linea bg-dopamina-fondo/95 backdrop-blur px-6 py-4 flex flex-col gap-4">
           {navigation.map((item) => (
             <a
               key={item.path}

@@ -26,7 +26,35 @@
 6. Docs previos: diagnostico original y PLAN en la carpeta outputs de la
    sesión vieja; los vigentes están en docs/ del repo.
 
-## RONDA DE CORRECCIONES ABIERTA (28/9 noche — auditoría de Marcos)
+## RONDA 2 EN EL SANDBOX (27/9 — feedback de Marcos sobre el preview #3)
+Sigue en la rama ajustes-marquee-sesgo → PR #3 → deploy preview → OK de Marcos.
+Skills nuevas cargadas al contexto: dopa-finanzas y staff-dopamina (además de
+escribir-como-marcos, obligatoria para todo copy). Lo hecho en esta ronda:
+- [x] PALETA DE LA MAQUETA aplicada de verdad (era la diferencia grande que
+      Marcos veía): fondo #0A0812, paneles #14101F, líneas rgba(245,243,250,.1),
+      radios 18px, tintas violáceas. Tokens dopamina.fondo/panel/linea/tinta-*
+      en tailwind.config.js. Nada de zinc en las secciones del rediseño.
+- [x] /api/ultimos (nuevo): último video de la playlist de cada programa,
+      scrapeando la página pública de cada lista (sin API key). Verificado:
+      las 4 playlists ordenan más-nuevo-primero. PSH PLNFlrAum2DnoP-i4ohOh9jNDtJbR45DM4
+      · CDM ...pP4eg2AcKF_5C5RwSBV2c9 · TSI ...pKbUX_8kf8X1ysvdlk59Fo ·
+      BS ...pbNEFwWwIGGtPpFdBie1EN. OJO: hay playlists duplicadas viejas de
+      PSH/CDM/TSI en el canal, las vigentes son estas. Cache 15 min.
+      El RSS de playlists de YouTube está muerto (404), por eso scraping.
+- [x] "Lo último de Dopamina" = feed real: 4 cards con el TÍTULO del último
+      vivo/corte de cada programa (cortado en el "|"), fecha de YouTube,
+      chips YouTube+Instagram por programa, fila "Dopamina stream" abajo.
+      Spotify ELIMINADO (Marcos: desactualizados, sacarlos por ahora).
+      Eyebrow sin la palabra "multimedio" (Marcos: ya no debe figurar).
+- [x] Banner radio apagada: muestra el título real del último video del canal
+      + botón ROJO YouTube "Darle play" (Marcos: rojo o blanco/rojo, amarillo
+      no). Chip "On demand" en blanco con ícono rojo. Reloj queda (le encanta;
+      se sumó también al footer).
+- [x] Copy "muy LLM" de la membresía reescrito en voz Marcos.
+- [x] PSH: "Ignacio López" → "el Bocha" (así va en la grilla, ver staff-dopamina).
+- Falta: OK de Marcos sobre el preview → merge. Portal = fase 2, OTRO chat.
+
+## RONDA DE CORRECCIONES CERRADA (28/9 noche — auditoría de Marcos)
 Trabajar TODO en la rama ajustes-marquee-sesgo → PR #3 → deploy preview →
 verificación visual PROPIA → recién ahí mostrarle a Marcos. NO mergear sin su OK.
 - [ ] BUG: "On demand →" del chip no clickea (sospecha: el header fixed del

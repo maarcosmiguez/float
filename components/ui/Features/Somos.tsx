@@ -23,18 +23,18 @@ export default () => (
       <h2 className="font-display uppercase text-white text-4xl sm:text-5xl">
         ¿Qué es la Dopamina?
       </h2>
-      <p className="text-zinc-400 text-lg mt-3">Un neurotransmisor. Y nosotros hacemos:</p>
+      <p className="text-dopamina-tinta-2 text-lg mt-3">Un neurotransmisor. Y nosotros hacemos:</p>
     </div>
     <div className="grid gap-4 md:grid-cols-3 max-w-5xl mx-auto">
       {features.map((f) => (
         <div
           key={f.title}
-          className="rounded-2xl border border-zinc-800 bg-zinc-900/70 p-6 text-left"
+          className="rounded-[18px] border border-dopamina-linea bg-dopamina-panel p-6 text-left"
         >
           <h3 className="font-display uppercase text-white text-xl leading-tight">
             {f.title}
           </h3>
-          <p className="text-zinc-400 text-sm leading-relaxed mt-3">{f.desc}</p>
+          <p className="text-dopamina-tinta-2 text-sm leading-relaxed mt-3">{f.desc}</p>
         </div>
       ))}
     </div>

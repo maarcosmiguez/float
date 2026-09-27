@@ -139,7 +139,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es" className="bg-zinc-950">
+    <html lang="es" className="bg-dopamina-fondo">
       <head>
         <meta
           name="viewport"
@@ -148,7 +148,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <meta name="theme-color" content="#09090b" />
+        <meta name="theme-color" content="#0A0812" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

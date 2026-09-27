@@ -96,9 +96,9 @@ export const PlanesDeSuscripcion = ({
           <span className="inline-block text-xs font-bold tracking-wide uppercase text-dopamina-amarillo">
             La forma recomendada
           </span>
-          <p className="text-2xl sm:text-3xl heading">Hacete miembro en Youtube</p>
+          <p className="text-2xl sm:text-3xl heading">Hacete miembro en YouTube</p>
           <p className="text-gray-300 max-w-md mx-auto">
-            Un click, sin vueltas: te sumás como miembro del canal y listo. Acceso a contenido exclusivo, insignias y la satisfacción de bancar el medio que mirás.
+            Es la vía más directa de bancar el canal: te unís desde YouTube y el aporte llega todos los meses. De yapa, insignias y emojis de blandengue para comentar en los vivos.
           </p>
           <a
             href="https://www.youtube.com/@estoesdopamina/join"
@@ -111,9 +111,9 @@ export const PlanesDeSuscripcion = ({
         </div>
 
         <div className="mt-10 flex items-center gap-4 max-w-2xl mx-auto">
-          <div className="flex-1 h-px bg-zinc-800" />
-          <span className="text-xs text-zinc-500 uppercase tracking-wide">o elegí tu aporte</span>
-          <div className="flex-1 h-px bg-zinc-800" />
+          <div className="flex-1 h-px bg-dopamina-linea" />
+          <span className="text-xs text-dopamina-tinta-3 uppercase tracking-wide">o elegí tu aporte</span>
+          <div className="flex-1 h-px bg-dopamina-linea" />
         </div>
         <p className="text-center text-sm text-gray-400 mt-2">
           Mercado Pago para Uruguay, PayPal si estás afuera.
@@ -125,10 +125,10 @@ export const PlanesDeSuscripcion = ({
               key={idx}
               className={`relative flex-1 flex items-stretch flex-col mt-10 border sm:mt-0 rounded-xl sm:max-w-md ${
                 idx === 2
-                  ? "bg-zinc-950 border-dopamina-violeta"
+                  ? "bg-dopamina-fondo border-dopamina-violeta"
                   : idx === 1
-                  ? "bg-zinc-900 border-dopamina-amarillo border-2"
-                  : "bg-zinc-900/60 border-zinc-800"
+                  ? "bg-dopamina-panel border-dopamina-amarillo border-2"
+                  : "bg-dopamina-panel/60 border-dopamina-linea"
               }`}
             >
               {idx === 1 && (
