@@ -18,14 +18,14 @@ const filas = [
     tint: "#7C3AED",
     youtube: "https://youtube.com/playlist?list=PLNFlrAum2DnpP4eg2AcKF_5C5RwSBV2c9",
     spotify: "https://open.spotify.com/show/6FPgOnWXJWbo549jF3rhyQ",
-    // instagram: "https://www.instagram.com/<HANDLE_CDM>/", // pendiente: confirmar handle con Marcos
+    instagram: "https://www.instagram.com/estoescdm/",
   },
   {
     nombre: "Todos Iguales",
     detalle: "El late night del streaming",
     tint: "#D32521",
     youtube: "https://www.youtube.com/playlist?list=PLNFlrAum2DnpKbUX_8kf8X1ysvdlk59Fo",
-    // instagram: "https://www.instagram.com/<HANDLE_TSI>/", // pendiente: confirmar handle con Marcos
+    instagram: "https://www.instagram.com/estoestodosiguales/",
   },
   {
     nombre: "Poco Se Habla",
@@ -33,7 +33,7 @@ const filas = [
     tint: "#2BDC0D",
     youtube: "https://www.youtube.com/playlist?list=PLNFlrAum2DnoP-i4ohOh9jNDtJbR45DM4",
     spotify: "https://open.spotify.com/show/0x7iKxaeyMofFZcX8o306y",
-    // instagram: "https://www.instagram.com/<HANDLE_PSH>/", // pendiente: confirmar handle con Marcos
+    instagram: "https://www.instagram.com/pocosehabla.uy/",
   },
   {
     nombre: "Bufete Sentimental",

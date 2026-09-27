@@ -39,10 +39,14 @@ verificación visual PROPIA → recién ahí mostrarle a Marcos. NO mergear sin 
       limpias con borde, sin íconos), Footer viejo ("marca registrada",
       "Para más placer" — maqueta: "El estrimin que mira Uruguay").
 - [ ] "Dopamina completo" → "Dopamina stream" en LoUltimo.
-- [ ] IG de CDM/PSH/TSI en el rider: Marcos exige que estén. Verificar
-      handles reales (candidatos que EXISTEN pero sin identidad confirmada:
-      @campanadelmiedo, @pocosehablauy, @todosigualesuy). Confirmar por
-      WebSearch/links oficiales antes de linkear.
+- [x] IG CONFIRMADOS POR MARCOS (28/9): TSI @estoestodosiguales ·
+      CDM @estoescdm · PSH @pocosehabla.uy · BS @bufetesentimental.
+- [ ] DIRECTIVA NUEVA DE DISEÑO (Marcos, 28/9): la mayoría del tiempo NO
+      están en vivo → cuando la "radio está apagada", el ON DEMAND es el
+      protagonista (banner y chip con jerarquía invertida: grande el
+      on demand con ícono de YouTube, secundario el "próximo en aire").
+      Validar con Marcos vía sandbox ANTES de mergear. El botón On demand
+      además no clickeaba y le faltaba el ícono de YouTube.
 - [ ] Marquee sesgado -2° ya está en la rama (Marcos: "mejor que antes").
 - [ ] Marcos escucha por audio: responder SIEMPRE sintético.
 
