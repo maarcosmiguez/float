@@ -38,8 +38,16 @@ frase NO autoriza saltear su revisión visual.
 ## Identidad
 - Anton (display, via --font-anton) + Montserrat. Tokens dopamina.* en
   tailwind.config.js (violeta/amarillo/celeste/cian/rojo/verde/bordo...).
+- Superficies SIEMPRE con los tokens de la maqueta: dopamina.fondo #0A0812,
+  panel #14101F, linea, tinta-2/3. Nada de zinc en secciones del rediseño.
+- Color por función (Marcos, 27/9): on demand = ROJO YouTube o blanco+rojo;
+  amarillo solo para membresía/marca; verde-fluo = vúmetro. La palabra
+  "multimedio" no va en la web.
 - Tagline: "El estrimin que mira Uruguay" ("Uruguay" en dopamina.celeste).
 - Comunidad: "blandengues". Web = B2C cercano; dossier = B2B.
+- /api/ultimos scrapea la playlist de cada programa (las 4 vigentes están en
+  components/ui/aire/ultimos.ts + LoUltimo); hay listas duplicadas viejas en
+  el canal, no cambiarlas sin verificar cuál recibe los videos nuevos.
 - Assets fuente: /Users/a59898/Documents/Dopamina - Recursos/Recursos
   graficos/RRSS (miniaturas 16:9, video loops, portada YouTube).
 
