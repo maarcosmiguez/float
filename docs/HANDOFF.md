@@ -26,6 +26,26 @@
 6. Docs previos: diagnostico original y PLAN en la carpeta outputs de la
    sesión vieja; los vigentes están en docs/ del repo.
 
+## RONDA DE CORRECCIONES ABIERTA (28/9 noche — auditoría de Marcos)
+Trabajar TODO en la rama ajustes-marquee-sesgo → PR #3 → deploy preview →
+verificación visual PROPIA → recién ahí mostrarle a Marcos. NO mergear sin su OK.
+- [ ] BUG: "On demand →" del chip no clickea (sospecha: el header fixed del
+      Navbar viejo tapa el chip y captura los clicks — diagnosticar con
+      elementFromPoint en el preview).
+- [ ] Auditoría completa producción vs. maqueta v4 del artifact. Diferencias
+      ya identificadas: Navbar sigue siendo el del template (sin CTA
+      "Hacete blandengue", links viejos), sección "¿Qué es la Dopamina?"
+      sigue con las cards viejas del template (la maqueta tenía cards
+      limpias con borde, sin íconos), Footer viejo ("marca registrada",
+      "Para más placer" — maqueta: "El estrimin que mira Uruguay").
+- [ ] "Dopamina completo" → "Dopamina stream" en LoUltimo.
+- [ ] IG de CDM/PSH/TSI en el rider: Marcos exige que estén. Verificar
+      handles reales (candidatos que EXISTEN pero sin identidad confirmada:
+      @campanadelmiedo, @pocosehablauy, @todosigualesuy). Confirmar por
+      WebSearch/links oficiales antes de linkear.
+- [ ] Marquee sesgado -2° ya está en la rama (Marcos: "mejor que antes").
+- [ ] Marcos escucha por audio: responder SIEMPRE sintético.
+
 ## Pendientes INMEDIATOS
 - [ ] Instagram por programa en LoUltimo: solo @bufetesentimental quedó
       verificado. FALTAN los handles reales de CDM, PSH y TSI → pedírselos
