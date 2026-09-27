@@ -1,11 +1,12 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import showCdm from "public/show-cdm.jpg";
 import showTsi from "public/show-tsi.jpg";
 import showPsh from "public/show-psh.jpg";
 import showBs from "public/show-bs.jpg";
+import { estadoAire } from "../aire/aire";
 
 const shows = [
   {
@@ -50,8 +51,32 @@ const shows = [
   },
 ];
 
+const SLUG_A_ID: Record<string, string> = {
+  cdm: "campaDelMiedo",
+  tsi: "todosIguales",
+  psh: "pocoSeHabla",
+  bs: "bufete",
+};
+
 export default () => {
   const gridRef = useRef<HTMLDivElement | null>(null);
+  const [liveId, setLiveId] = useState<string | null>(null);
+
+  useEffect(() => {
+    let vivo = true;
+    const tick = () => {
+      estadoAire().then((e) => {
+        if (!vivo) return;
+        setLiveId(e.live ? SLUG_A_ID[e.show.slug] ?? null : null);
+      });
+    };
+    tick();
+    const id = setInterval(tick, 60000);
+    return () => {
+      vivo = false;
+      clearInterval(id);
+    };
+  }, []);
 
   useEffect(() => {
     const cards = gridRef.current?.querySelectorAll("[data-showcard]");
@@ -92,7 +117,7 @@ export default () => {
             key={show.id}
             id={show.id}
             data-showcard
-            className={`group rounded-2xl border border-zinc-800 bg-zinc-900/70 overflow-hidden
+            className={`group relative rounded-2xl border border-zinc-800 bg-zinc-900/70 overflow-hidden
               opacity-0 translate-y-6 transition-all duration-500 ease-out
               hover:-translate-y-1.5 hover:rotate-0
               motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:transition-none motion-reduce:rotate-0
@@ -105,6 +130,12 @@ export default () => {
               (e.currentTarget as HTMLElement).style.boxShadow = `0 18px 50px -18px ${show.tint}55`;
             }}
           >
+            {liveId === show.id && (
+              <span className="absolute top-3 left-3 z-10 inline-flex items-center gap-1.5 bg-red-600 text-white rounded-full text-[0.64rem] font-extrabold uppercase tracking-widest px-3 py-1.5">
+                <i className="w-1.5 h-1.5 rounded-full bg-white animate-pulse motion-reduce:animate-none" />
+                En vivo
+              </span>
+            )}
             {/* Imagen 16:9 SIEMPRE completa: el contenedor tiene el mismo aspect ratio
                 que el asset (16:9) y la imagen se muestra entera, sin cover ni zoom. */}
             <a href={show.href} target="_blank" rel="noopener noreferrer" className="block aspect-video">

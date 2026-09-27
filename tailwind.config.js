@@ -15,6 +15,7 @@ module.exports = {
         dopamina: {
           violeta: "#7C3AED",
           amarillo: "#F9E400",
+          celeste: "#5CB9E6",
           cian: "#008EAD",
           rojo: "#D32521",
           verde: "#0E6800",

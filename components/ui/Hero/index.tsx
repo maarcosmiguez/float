@@ -2,6 +2,7 @@ import LinkItem from "../LinkItem";
 import SocialMedia from "../SocialMedia/index";
 import { PlayCircleIcon } from "@heroicons/react/24/solid";
 import BrandMain from "../BrandMain";
+import AireChip from "../aire/AireChip";
 
 export default () => {
   return (
@@ -25,7 +26,8 @@ export default () => {
         }}
       />
 
-      <div className="custom-screen relative z-10 flex flex-col items-center text-center gap-6 pt-32 pb-28">
+      <div className="custom-screen relative z-10 flex flex-col items-center text-center gap-6 pt-28 pb-32">
+        <AireChip />
         <div className="hover:animate-pulse active:animate-spin cursor-pointer max-w-[260px]">
           <BrandMain />
         </div>
@@ -33,7 +35,7 @@ export default () => {
           className="font-display uppercase text-white leading-[0.94] max-w-[13ch]"
           style={{ fontSize: "clamp(3.2rem, 11vw, 7rem)", textShadow: "0 4px 40px rgba(0,0,0,0.55)" }}
         >
-          El estrimin que mira <span className="text-dopamina-amarillo">Uruguay</span>
+          El estrimin que mira <span className="text-dopamina-celeste">Uruguay</span>
         </h1>
         <p className="text-zinc-400 max-w-lg text-lg">
           Cuatro programas y una gran comunidad. Noticias, entretenimiento y opinión informada por streaming y on demand.

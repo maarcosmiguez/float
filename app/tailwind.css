@@ -163,6 +163,26 @@
   scrollbar-width: none;
 }
 
+/* Vúmetro del chip de aire */
+@keyframes vu {
+  from {
+    transform: scaleY(0.35);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+/* Marquee tipográfico */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 .section {
   opacity: 0;
   transform: translateY(50px);
