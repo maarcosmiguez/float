@@ -1,58 +1,42 @@
-import {
-  IconArrowsexpandLeft,
-  IconBxCustomize,
-  IconPennibLine,
-} from "components/icons";
-import {
-  PlayIcon,
-  InformationCircleIcon,
-  ArrowPathRoundedSquareIcon
-} from "@heroicons/react/24/outline";
 import { ReactNode } from "react";
-import featureCover from "public/feature-cover.svg";
-import Image from "next/image";
-import Card from "./Card";
 
-type Feature = {
-  title: string;
-  desc: string;
-  icon: ReactNode;
-};
+type Feature = { title: string; desc: string };
 
-export default () => {
-  const features: Feature[] = [
-    {
-      title: "Streaming para los reales",
-      desc: "Nos encontrás tres veces por semana y cuando quieras on demand. Todo, por nuestro canal de Youtube.",
-      icon: <PlayIcon className="max-w-5" />,
-    },
-    {
-      title: "Clips para informarte rápido",
-      desc: "Nuestra misión es que la información llegue a vos y que la consumas porque te divierte y te entretiene (te da dopamina, guiño guiño). Por eso decimos que aunque no nos sigas nos vas a ver igual. No es una amenaza, esperamos que te guste.",
-      icon: <InformationCircleIcon className="max-w-5" />,
-    },
-    {
-      title: "Una comunicación para nuestra generación",
-      desc: "Actualidad, entretenimiento, cultura y deporte, contados con un lenguaje cercano. La información no es aburrida, pero a veces lo son quienes te la cuentan. Nosotros creemos que informarse es fácil, accesible y entretenido. O moriremos intentándolo.",
-      icon: <ArrowPathRoundedSquareIcon className="max-w-5" />,
-    },
-  ];
+const features: Feature[] = [
+  {
+    title: "Streaming para los reales",
+    desc: "Nos encontrás toda la semana en vivo, y cuando quieras on demand. Todo por nuestro canal de YouTube.",
+  },
+  {
+    title: "Clips para informarte rápido",
+    desc: "Nuestra misión es que la información llegue a vos y que la consumas porque te divierte y te entretiene (te da dopamina, guiño guiño). Aunque no nos sigas, nos vas a ver igual.",
+  },
+  {
+    title: "Una comunicación para nuestra generación",
+    desc: "Actualidad, entretenimiento, cultura y deporte, contados con un lenguaje cercano. Informarse tiene que ser fácil, accesible y entretenido. O moriremos intentándolo.",
+  },
+];
 
-  return (
-    <div className="custom-screen relative">
-      <div className="relative z-10 mx-auto my-auto justify-center items-center space-y-10 text-center flex flex-col">
-      <div className="max-w-xl mx-auto space-y-4 text-center">
-        <h2 className="text-5xl heading">¿Qué es la Dopamina?</h2>
-        <p className="text-zinc-400 text-xl">
-          Un neurotransmisor. Y nosotros hacemos:
-        </p>
-      </div>
-      <ul className="space-y-10 gap-6 mt-8 max-w-7xl mx-auto grid-cols-2 sm:grid lg:grid-cols-3 sm:space-y-0">
-        {features.map((item: Feature, key: number) => (
-          <Card key={key} icon={item.icon} title={item.title} desc={item.desc} />
-        ))}
-      </ul>
-      </div>
+export default () => (
+  <div className="custom-screen relative">
+    <div className="text-center mb-10">
+      <h2 className="font-display uppercase text-white text-4xl sm:text-5xl">
+        ¿Qué es la Dopamina?
+      </h2>
+      <p className="text-zinc-400 text-lg mt-3">Un neurotransmisor. Y nosotros hacemos:</p>
     </div>
-  );
-};
+    <div className="grid gap-4 md:grid-cols-3 max-w-5xl mx-auto">
+      {features.map((f) => (
+        <div
+          key={f.title}
+          className="rounded-2xl border border-zinc-800 bg-zinc-900/70 p-6 text-left"
+        >
+          <h3 className="font-display uppercase text-white text-xl leading-tight">
+            {f.title}
+          </h3>
+          <p className="text-zinc-400 text-sm leading-relaxed mt-3">{f.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+);

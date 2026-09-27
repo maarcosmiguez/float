@@ -1,155 +1,77 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import {
-  Bars3Icon,
-  XMarkIcon,
-  SparklesIcon,
-  HomeModernIcon,
-  PlayIcon,
-  BoltIcon,
-} from "@heroicons/react/24/solid";
-import Brand from "../Brand";
+import { useState } from "react";
 import Link from "next/link";
-import NewsletterModal from "../NewsletterModal";
-import BorderGradient from "../Footer/BorderGradient";
-import BgGradient from "../BgGradient";
+import Brand from "../Brand";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
+
+// Navbar del rediseño "estudio en vivo": sticky compacto (no tapa el chip
+// de aire), links de las secciones reales y CTA de membresía siempre visible.
+const navigation = [
+  { title: "Programación", path: "#contenido" },
+  { title: "Dónde encontrarnos", path: "#ultimo" },
+  { title: "La Dopamina", path: "#somos" },
+  { title: "Contacto", path: "#contacto" },
+];
 
 export default () => {
-  const [state, setState] = useState(false);
-  const [isNewsletterModalActive, setNewsletterModalActive] = useState(false);
-  const [animateHeader, setAnimateHeader] = useState(false);
-
-  // Manejo del scroll para animar el header
-  useEffect(() => {
-    const listener = () => {
-      setAnimateHeader(window.scrollY > 140);
-    };
-    window.addEventListener("scroll", listener);
-    return () => {
-      window.removeEventListener("scroll", listener);
-    };
-  }, []);
-
-  // Navegación del sitio
-  const navigation = [
-    {
-      title: "Inicio",
-      path: "#home",
-      icon: <HomeModernIcon className="w-4 h-4" />,
-    },
-    {
-      title: "Contenido",
-      path: "#contenido",
-      icon: <PlayIcon className="w-4 h-4" />,
-    },
-    {
-      title: "Qué hacemos",
-      path: "#somos",
-      icon: <BoltIcon className="w-4 h-4" />,
-    },
-  ];
-
-  // Cerrar menú al hacer clic fuera de él
-  useEffect(() => {
-    document.onclick = (e) => {
-      const target = e.target as HTMLElement;
-      if (target && !target.closest(".menu-btn")) {
-        setState(false);
-      }
-    };
-  }, []);
-
-  // Botón para abrir el modal de newsletter
-  function EditorWithAiButton() {
-    return (
-      <button
-        className="w-full font-medium text-sm hover:text-gray-100 text-gray-300 flex items-center gap-2 duration-200 group px-2 lg:px-6 py-1 text-md leading-[22px] md:px-3"
-        onClick={() => setNewsletterModalActive(true)}
-      >
-        <span className="hidden md:block">Aportar a este proyecto</span>
-        <span className="md:hidden">Aportá</span>
-        <SparklesIcon className="w-4 h-4 opacity-100 scale-100 md:opacity-0 md:group-hover:opacity-100 md:scale-50 md:group-hover:scale-125 duration-150" />
-      </button>
-    );
-  }
+  const [open, setOpen] = useState(false);
 
   return (
-    <>
-      <header
-        className={`w-full backdrop-filter backdrop-blur-lg bg-neutral-950/50 fixed z-50 transition ease-in-out duration-500 ${
-          animateHeader ? "shadow-xl" : ""
-        }`}
-      >
-        <nav
-          className={`${
-            state
-              ? "absolute inset-x-0 shadow-lg backdrop-filter backdrop-blur-lg bg-gray-950 pb-5 md:shadow-none md:border-none md:mx-2 md:mt-0 md:bg-transparent md:pb-0 h-screen"
-              : ""
-          }`}
+    <header className="sticky top-0 z-40 border-b border-zinc-800 bg-zinc-950/75 backdrop-blur-lg pt-2">
+      <nav className="custom-screen flex items-center justify-between h-14">
+        <Link href="/" className="shrink-0">
+          <Brand />
+        </Link>
+
+        <div className="hidden md:flex items-center gap-7">
+          {navigation.map((item) => (
+            <a
+              key={item.path}
+              href={item.path}
+              className="text-[0.8rem] font-semibold uppercase tracking-wider text-zinc-400 hover:text-white duration-150"
+            >
+              {item.title}
+            </a>
+          ))}
+          <a
+            href="#planes"
+            className="px-4 py-2 rounded-full bg-dopamina-amarillo text-zinc-950 text-[0.78rem] font-bold hover:bg-yellow-300 duration-150"
+          >
+            Hacete blandengue
+          </a>
+        </div>
+
+        <button
+          className="md:hidden text-zinc-300 p-2"
+          aria-label="Menú"
+          onClick={() => setOpen(!open)}
         >
-          <div className="custom-screen-lg gap-x-14 items-center md:flex">
-            <div
-              className={`flex max-w-screen-xl py-10 ${
-                animateHeader ? "py-5" : ""
-              } mx-auto items-center justify-between px-2 transition ease-in-out duration-500`}
+          {open ? <XMarkIcon className="w-6 h-6" /> : <Bars3Icon className="w-6 h-6" />}
+        </button>
+      </nav>
+
+      {open && (
+        <div className="md:hidden border-t border-zinc-800 bg-zinc-950/95 backdrop-blur px-6 py-4 flex flex-col gap-4">
+          {navigation.map((item) => (
+            <a
+              key={item.path}
+              href={item.path}
+              onClick={() => setOpen(false)}
+              className="text-sm font-semibold uppercase tracking-wider text-zinc-300"
             >
-              <BgGradient className="absolute inset-x-0 top-0 mx-auto z-0" />
-              <Link
-                href="/"
-                className="text-xl font-bold tracking-tighter text-indigo-400 pr-8 z-10 hidden md:block"
-              >
-                <Brand />
-              </Link>
-            </div>
-            <div
-              className={`flex-1 items-center mt-8 md:mt-0 md:flex z-20 ${
-                state ? "block" : "hidden"
-              }`}
-            >
-              <ul className="flex-1 justify-end items-center space-y-4 md:flex md:space-x-2 md:space-y-0">
-                {navigation.map((item, idx) => (
-                  <li
-                    key={idx}
-                    className="font-medium text-sm duration-200 flex items-center gap-2 z-30 group px-2 lg:px-6 py-1 text-md leading-[22px] md:px-3 hover:text-gray-100 text-gray-300"
-                  >
-                    <Link
-                      href={item.path}
-                      className="block"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        const section = document.querySelector(item.path);
-                        if (section) {
-                          const sectionOffset =
-                            section.getBoundingClientRect().top +
-                            window.scrollY;
-                          window.scrollTo({
-                            top:
-                              sectionOffset -
-                              (window.innerHeight / 2 -
-                                section.clientHeight / 2),
-                            behavior: "smooth",
-                          });
-                        }
-                      }}
-                    >
-                      {item.title}
-                    </Link>
-                    <item.icon.type className="w-4 h-4 opacity-100 scale-100 md:opacity-0 md:group-hover:opacity-100 md:scale-50 md:group-hover:scale-125 duration-150" />
-                  </li>
-                ))}
-                <li>
-                  {/* <EditorWithAiButton /> */}
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </header>
-      <NewsletterModal
-        isActive={isNewsletterModalActive}
-        closeModal={setNewsletterModalActive}
-      />
-    </>
+              {item.title}
+            </a>
+          ))}
+          <a
+            href="#planes"
+            onClick={() => setOpen(false)}
+            className="self-start px-4 py-2 rounded-full bg-dopamina-amarillo text-zinc-950 text-sm font-bold"
+          >
+            Hacete blandengue
+          </a>
+        </div>
+      )}
+    </header>
   );
 };

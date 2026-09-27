@@ -6,7 +6,7 @@
 // su spotify: acá y listo.
 const filas = [
   {
-    nombre: "Dopamina completo",
+    nombre: "Dopamina stream",
     detalle: "Vivos, clips y todo el archivo",
     tint: "#F9E400",
     youtube: "https://www.youtube.com/@estoesdopamina",
