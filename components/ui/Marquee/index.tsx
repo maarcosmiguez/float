@@ -7,7 +7,7 @@ const Tira = () => (
 );
 
 export default () => (
-  <div className="overflow-hidden border-y border-zinc-800 bg-dopamina-amarillo py-2.5" aria-hidden="true">
+  <div className="overflow-hidden border-y border-zinc-800 bg-dopamina-amarillo py-2.5 -rotate-2 scale-x-105 my-6" aria-hidden="true">
     <div className="flex gap-10 w-max animate-[marquee_22s_linear_infinite] motion-reduce:animate-none">
       <Tira />
       <Tira />

@@ -14,6 +14,14 @@ Producción: https://dopamina.uy — deploya solo al pushear `main`.
 - Grilla vigente: PSH lun/mié 9-10:30 · CDM mar/jue 9-10:30 · TSI mar/jue
   20-21:30 · BS vie 9-10:30 (hora Montevideo). Si cambia, editar GRILLA.
 
+## REGLA DE FUEGO (aprendida el 28/9/2026, no romper JAMÁS)
+NUNCA deployar a producción sin que Marcos lo haya VISTO antes corriendo
+en un entorno real (sandbox). Flujo obligatorio: rama → PR → Deploy
+Preview de Netlify (ese es el sandbox) → Marcos mira la URL del preview
+y da el OK explícito → recién ahí merge a main. Sin excepciones, aunque
+el cambio parezca menor o Marcos haya dicho antes "vamos a produ": esa
+frase NO autoriza saltear su revisión visual.
+
 ## Reglas de trabajo con Marcos
 - Voseo uruguayo. Tono: ver skill escribir-como-marcos. NUNCA guion largo (—).
 - No inventar datos, horarios, handles ni links: verificar o preguntar.
