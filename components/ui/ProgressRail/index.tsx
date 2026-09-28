@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-const SECTIONS = ["home", "planes", "contenido", "ultimo", "somos"];
+const SECTIONS = ["home", "contenido", "ultimo", "somos", "planes", "contacto"];
 
 export default () => {
   const barsRef = useRef<(HTMLDivElement | null)[]>([]);

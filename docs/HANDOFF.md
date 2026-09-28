@@ -26,6 +26,100 @@
 6. Docs previos: diagnostico original y PLAN en la carpeta outputs de la
    sesión vieja; los vigentes están en docs/ del repo.
 
+## RONDA 2 EN EL SANDBOX (27/9 — feedback de Marcos sobre el preview #3)
+Sigue en la rama ajustes-marquee-sesgo → PR #3 → deploy preview → OK de Marcos.
+Skills nuevas cargadas al contexto: dopa-finanzas y staff-dopamina (además de
+escribir-como-marcos, obligatoria para todo copy). Lo hecho en esta ronda:
+- [x] PALETA DE LA MAQUETA aplicada de verdad (era la diferencia grande que
+      Marcos veía): fondo #0A0812, paneles #14101F, líneas rgba(245,243,250,.1),
+      radios 18px, tintas violáceas. Tokens dopamina.fondo/panel/linea/tinta-*
+      en tailwind.config.js. Nada de zinc en las secciones del rediseño.
+- [x] /api/ultimos (nuevo): último video de la playlist de cada programa,
+      scrapeando la página pública de cada lista (sin API key). Verificado:
+      las 4 playlists ordenan más-nuevo-primero. PSH PLNFlrAum2DnoP-i4ohOh9jNDtJbR45DM4
+      · CDM ...pP4eg2AcKF_5C5RwSBV2c9 · TSI ...pKbUX_8kf8X1ysvdlk59Fo ·
+      BS ...pbNEFwWwIGGtPpFdBie1EN. OJO: hay playlists duplicadas viejas de
+      PSH/CDM/TSI en el canal, las vigentes son estas. Cache 15 min.
+      El RSS de playlists de YouTube está muerto (404), por eso scraping.
+- [x] "Lo último de Dopamina" = feed real: 4 cards con el TÍTULO del último
+      vivo/corte de cada programa (cortado en el "|"), fecha de YouTube,
+      chips YouTube+Instagram por programa, fila "Dopamina stream" abajo.
+      Spotify ELIMINADO (Marcos: desactualizados, sacarlos por ahora).
+      Eyebrow sin la palabra "multimedio" (Marcos: ya no debe figurar).
+- [x] Banner radio apagada: muestra el título real del último video del canal
+      + botón ROJO YouTube "Darle play" (Marcos: rojo o blanco/rojo, amarillo
+      no). Chip "On demand" en blanco con ícono rojo. Reloj queda (le encanta;
+      se sumó también al footer).
+- [x] Copy "muy LLM" de la membresía reescrito en voz Marcos.
+- [x] PSH: "Ignacio López" → "el Bocha" (así va en la grilla, ver staff-dopamina).
+- Falta: OK de Marcos sobre el preview → merge. Portal = fase 2, OTRO chat.
+
+## RONDA 3 EN EL SANDBOX (28/9 — 11 puntos de Marcos sobre el preview)
+- [x] BUG falso "EN VIVO" con vivo programado: /api/live ahora separa
+      "isUpcoming":true (programado) de vivo real, y extrae videoId + título
+      + scheduledStartTime. Capturado contra el HTML real del partido Sub-20.
+- [x] 3 estados en chip y banner: EN VIVO (chip entero clickeable, banner con
+      miniatura + programa + título del vivo) · PRÓXIMA TRANSMISIÓN (celeste,
+      botón blanco "Avisame", link secundario a lo último) · apagada (lo
+      último con botón rojo "Darle play"). "On demand" ya no se repite: se
+      dice "Lo último".
+- [x] Feed con portadas mqdefault 16:9 de cada último video. Sin la línea
+      del portal (Marcos: no mandarla a producción).
+- [x] Planes: sección movida al final del recorrido (hero CTA = énfasis
+      arriba, como la maqueta) y compactada. Jerarquía: miembro YouTube →
+      MP/PayPal mensual → aporte único.
+- [x] Navbar SIEMPRE visible (fixed; el sticky se perdía al scrollear) +
+      scrollspy con subrayado amarillo en la sección activa. html con
+      scroll-padding-top 84px. Ancla #contacto creada en page.tsx.
+- [x] Marquee: texto nuevo "EL PRIMER ESTRIMIN NACIONAL · ESTO ES DOPAMINA ·
+      SEGUINOS · @estoesdopamina" (ESTRIMIN y SEGUINOS huecos), 4 frases por
+      tira para que no se corte en pantallas anchas.
+- [x] Somos rediseñado: bento asimétrico con glows por color y card de
+      números (4 programas · 7 vivos por semana). Referencia Playground.
+- [x] Contacto: "Prensa, producciones, publicidad o simplemente pasar a
+      saludar" + botón DM de Instagram (ig.me/m/estoesdopamina), mail chico.
+      Formulario a mail: queda para el portal (ahí hay backend).
+- [x] Facebook comentado en SocialMedia + sameAs (no existe la página aún).
+
+## SPECS VIDEO HERO PARA MATHI (pedido 28/9)
+Un solo archivo alcanza (el recorte mobile lo hace el object-cover):
+- MP4, H.264 (libx264), SIN audio, moov al inicio (+faststart).
+- 1920x1080 (16:9), 24 a 30 fps.
+- 12 a 20 segundos con loop perfecto (primer y último frame iguales).
+- Peso objetivo: 5 MB o menos (CRF 28 aprox).
+- Poster aparte: JPG 1920x1080, 150 KB o menos (un frame del video).
+- Nombres: loop-hero.mp4 y loop-hero-poster.jpg (reemplazo directo en /public).
+- Comando de referencia:
+  ffmpeg -i master.mov -an -vf "scale=1920:-2,fps=30" -c:v libx264 -crf 28 -preset slow -movflags +faststart loop-hero.mp4
+- Opcional si quiere encuadre vertical propio: 1080x1920, 3 MB o menos.
+- Ya que está en tema, pendientes de diseño: og-share nueva 1200x630 (<300 KB,
+  la actual dice TSI martes y miércoles) y PNG transparentes de logos de
+  marcas + capas de programas.
+
+## RONDA DE CORRECCIONES CERRADA (28/9 noche — auditoría de Marcos)
+Trabajar TODO en la rama ajustes-marquee-sesgo → PR #3 → deploy preview →
+verificación visual PROPIA → recién ahí mostrarle a Marcos. NO mergear sin su OK.
+- [ ] BUG: "On demand →" del chip no clickea (sospecha: el header fixed del
+      Navbar viejo tapa el chip y captura los clicks — diagnosticar con
+      elementFromPoint en el preview).
+- [ ] Auditoría completa producción vs. maqueta v4 del artifact. Diferencias
+      ya identificadas: Navbar sigue siendo el del template (sin CTA
+      "Hacete blandengue", links viejos), sección "¿Qué es la Dopamina?"
+      sigue con las cards viejas del template (la maqueta tenía cards
+      limpias con borde, sin íconos), Footer viejo ("marca registrada",
+      "Para más placer" — maqueta: "El estrimin que mira Uruguay").
+- [ ] "Dopamina completo" → "Dopamina stream" en LoUltimo.
+- [x] IG CONFIRMADOS POR MARCOS (28/9): TSI @estoestodosiguales ·
+      CDM @estoescdm · PSH @pocosehabla.uy · BS @bufetesentimental.
+- [ ] DIRECTIVA NUEVA DE DISEÑO (Marcos, 28/9): la mayoría del tiempo NO
+      están en vivo → cuando la "radio está apagada", el ON DEMAND es el
+      protagonista (banner y chip con jerarquía invertida: grande el
+      on demand con ícono de YouTube, secundario el "próximo en aire").
+      Validar con Marcos vía sandbox ANTES de mergear. El botón On demand
+      además no clickeaba y le faltaba el ícono de YouTube.
+- [ ] Marquee sesgado -2° ya está en la rama (Marcos: "mejor que antes").
+- [ ] Marcos escucha por audio: responder SIEMPRE sintético.
+
 ## Pendientes INMEDIATOS
 - [ ] Instagram por programa en LoUltimo: solo @bufetesentimental quedó
       verificado. FALTAN los handles reales de CDM, PSH y TSI → pedírselos

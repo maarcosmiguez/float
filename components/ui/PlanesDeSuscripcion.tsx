@@ -78,7 +78,7 @@ export const PlanesDeSuscripcion = ({
           </button>
         </div>
       )}
-      <div className="relative max-w-screen-xl mx-auto text-gray-300 sm:px-4 md:px-8">
+      <div className="relative max-w-5xl mx-auto text-gray-300 sm:px-4 md:px-8">
         <div className="max-w-xl mx-auto space-y-2 px-4 sm:text-center sm:px-0">
           <h3 className="text-dopamina-amarillo font-semibold">Aporte mensual</h3>
           <p className="text-3xl sm:text-4xl heading">Hacete blandengue</p>
@@ -92,13 +92,13 @@ export const PlanesDeSuscripcion = ({
         </div> */}
 
         {/* Membresía de Youtube: la vía recomendada */}
-        <div className="mt-10 max-w-2xl mx-auto rounded-2xl border-2 border-dopamina-amarillo bg-gradient-to-br from-dopamina-violeta/20 to-transparent p-6 sm:p-8 text-center space-y-3">
+        <div className="mt-8 max-w-2xl mx-auto rounded-[18px] border-2 border-dopamina-amarillo bg-gradient-to-br from-dopamina-violeta/20 to-transparent p-6 text-center space-y-3">
           <span className="inline-block text-xs font-bold tracking-wide uppercase text-dopamina-amarillo">
             La forma recomendada
           </span>
-          <p className="text-2xl sm:text-3xl heading">Hacete miembro en Youtube</p>
+          <p className="text-2xl sm:text-3xl heading">Hacete miembro en YouTube</p>
           <p className="text-gray-300 max-w-md mx-auto">
-            Un click, sin vueltas: te sumás como miembro del canal y listo. Acceso a contenido exclusivo, insignias y la satisfacción de bancar el medio que mirás.
+            Es la vía más directa de bancar el canal: te unís desde YouTube y el aporte llega todos los meses. De yapa, insignias y emojis de blandengue para comentar en los vivos.
           </p>
           <a
             href="https://www.youtube.com/@estoesdopamina/join"
@@ -110,10 +110,10 @@ export const PlanesDeSuscripcion = ({
           </a>
         </div>
 
-        <div className="mt-10 flex items-center gap-4 max-w-2xl mx-auto">
-          <div className="flex-1 h-px bg-zinc-800" />
-          <span className="text-xs text-zinc-500 uppercase tracking-wide">o elegí tu aporte</span>
-          <div className="flex-1 h-px bg-zinc-800" />
+        <div className="mt-8 flex items-center gap-4 max-w-2xl mx-auto">
+          <div className="flex-1 h-px bg-dopamina-linea" />
+          <span className="text-xs text-dopamina-tinta-3 uppercase tracking-wide">o elegí tu aporte</span>
+          <div className="flex-1 h-px bg-dopamina-linea" />
         </div>
         <p className="text-center text-sm text-gray-400 mt-2">
           Mercado Pago para Uruguay, PayPal si estás afuera.
@@ -123,12 +123,12 @@ export const PlanesDeSuscripcion = ({
           {plans.map((item, idx) => (
             <div
               key={idx}
-              className={`relative flex-1 flex items-stretch flex-col mt-10 border sm:mt-0 rounded-xl sm:max-w-md ${
+              className={`relative flex-1 flex items-stretch flex-col mt-8 border sm:mt-0 rounded-xl sm:max-w-md ${
                 idx === 2
-                  ? "bg-zinc-950 border-dopamina-violeta"
+                  ? "bg-dopamina-fondo border-dopamina-violeta"
                   : idx === 1
-                  ? "bg-zinc-900 border-dopamina-amarillo border-2"
-                  : "bg-zinc-900/60 border-zinc-800"
+                  ? "bg-dopamina-panel border-dopamina-amarillo border-2"
+                  : "bg-dopamina-panel/60 border-dopamina-linea"
               }`}
             >
               {idx === 1 && (
@@ -136,9 +136,9 @@ export const PlanesDeSuscripcion = ({
                   El más elegido
                 </span>
               )}
-              <div className="p-8 space-y-6 md:p-8">
+              <div className="p-5 space-y-4">
                 <span className="text-gray-200 font-medium">{item.name}</span>
-                <div className="text-dopamina-amarillo text-3xl font-semibold">
+                <div className="text-dopamina-amarillo text-2xl font-semibold">
                   ${item.price}
                   <span className="text-xl font-normal">/mes</span>
                 </div>
@@ -161,7 +161,7 @@ export const PlanesDeSuscripcion = ({
           ))}
         </div>
                {/* Sección para aporte único */}
-               <div className="mt-16 text-center">
+               <div className="mt-10 text-center">
                <div className="flex justify-center">
             <form
               action="https://www.paypal.com/ncp/payment/4VUHJ8PLGKS9N"

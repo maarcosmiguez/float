@@ -1,155 +1,109 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import {
-  Bars3Icon,
-  XMarkIcon,
-  SparklesIcon,
-  HomeModernIcon,
-  PlayIcon,
-  BoltIcon,
-} from "@heroicons/react/24/solid";
-import Brand from "../Brand";
 import Link from "next/link";
-import NewsletterModal from "../NewsletterModal";
-import BorderGradient from "../Footer/BorderGradient";
-import BgGradient from "../BgGradient";
+import Brand from "../Brand";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
+
+// Header del rediseño "estudio en vivo": SIEMPRE visible (fixed) y con
+// scrollspy: el link de la sección que estás mirando queda marcado con la
+// señal amarilla. El html tiene scroll-padding para que los anclajes no
+// queden tapados.
+const navigation = [
+  { title: "Programación", path: "#contenido", id: "contenido" },
+  { title: "Lo último", path: "#ultimo", id: "ultimo" },
+  { title: "La Dopamina", path: "#somos", id: "somos" },
+  { title: "Contacto", path: "#contacto", id: "contacto" },
+];
+
+const OBSERVADAS = ["contenido", "ultimo", "somos", "planes", "contacto"];
 
 export default () => {
-  const [state, setState] = useState(false);
-  const [isNewsletterModalActive, setNewsletterModalActive] = useState(false);
-  const [animateHeader, setAnimateHeader] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [activa, setActiva] = useState<string | null>(null);
 
-  // Manejo del scroll para animar el header
   useEffect(() => {
-    const listener = () => {
-      setAnimateHeader(window.scrollY > 140);
-    };
-    window.addEventListener("scroll", listener);
-    return () => {
-      window.removeEventListener("scroll", listener);
-    };
-  }, []);
-
-  // Navegación del sitio
-  const navigation = [
-    {
-      title: "Inicio",
-      path: "#home",
-      icon: <HomeModernIcon className="w-4 h-4" />,
-    },
-    {
-      title: "Contenido",
-      path: "#contenido",
-      icon: <PlayIcon className="w-4 h-4" />,
-    },
-    {
-      title: "Qué hacemos",
-      path: "#somos",
-      icon: <BoltIcon className="w-4 h-4" />,
-    },
-  ];
-
-  // Cerrar menú al hacer clic fuera de él
-  useEffect(() => {
-    document.onclick = (e) => {
-      const target = e.target as HTMLElement;
-      if (target && !target.closest(".menu-btn")) {
-        setState(false);
-      }
-    };
-  }, []);
-
-  // Botón para abrir el modal de newsletter
-  function EditorWithAiButton() {
-    return (
-      <button
-        className="w-full font-medium text-sm hover:text-gray-100 text-gray-300 flex items-center gap-2 duration-200 group px-2 lg:px-6 py-1 text-md leading-[22px] md:px-3"
-        onClick={() => setNewsletterModalActive(true)}
-      >
-        <span className="hidden md:block">Aportar a este proyecto</span>
-        <span className="md:hidden">Aportá</span>
-        <SparklesIcon className="w-4 h-4 opacity-100 scale-100 md:opacity-0 md:group-hover:opacity-100 md:scale-50 md:group-hover:scale-125 duration-150" />
-      </button>
+    if (!("IntersectionObserver" in window)) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) setActiva(e.target.id);
+        }
+      },
+      // La sección "activa" es la que cruza la franja del medio de la pantalla.
+      { rootMargin: "-35% 0px -55% 0px" }
     );
-  }
+    OBSERVADAS.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) io.observe(el);
+    });
+    return () => io.disconnect();
+  }, []);
+
+  const claseLink = (id: string, extra = "") =>
+    `relative text-[0.8rem] font-semibold uppercase tracking-wider duration-150 ${
+      activa === id ? "text-white" : "text-dopamina-tinta-2 hover:text-white"
+    } after:absolute after:left-0 after:-bottom-1.5 after:h-[2px] after:rounded-full after:bg-dopamina-amarillo after:transition-all after:duration-300 ${
+      activa === id ? "after:w-full" : "after:w-0"
+    } ${extra}`;
 
   return (
-    <>
-      <header
-        className={`w-full backdrop-filter backdrop-blur-lg bg-neutral-950/50 fixed z-50 transition ease-in-out duration-500 ${
-          animateHeader ? "shadow-xl" : ""
-        }`}
-      >
-        <nav
-          className={`${
-            state
-              ? "absolute inset-x-0 shadow-lg backdrop-filter backdrop-blur-lg bg-gray-950 pb-5 md:shadow-none md:border-none md:mx-2 md:mt-0 md:bg-transparent md:pb-0 h-screen"
-              : ""
-          }`}
+    <header className="fixed top-0 inset-x-0 z-40 border-b border-dopamina-linea bg-dopamina-fondo/75 backdrop-blur-lg pt-2">
+      <nav className="custom-screen flex items-center justify-between h-14">
+        <Link href="/" className="shrink-0">
+          <Brand />
+        </Link>
+
+        <div className="hidden md:flex items-center gap-7">
+          {navigation.map((item) => (
+            <a key={item.path} href={item.path} className={claseLink(item.id)}>
+              {item.title}
+            </a>
+          ))}
+          <a
+            href="#planes"
+            className={`px-4 py-2 rounded-full text-[0.78rem] font-bold duration-150 ${
+              activa === "planes"
+                ? "bg-yellow-300 text-zinc-950 ring-2 ring-dopamina-amarillo/50"
+                : "bg-dopamina-amarillo text-zinc-950 hover:bg-yellow-300"
+            }`}
+          >
+            Hacete blandengue
+          </a>
+        </div>
+
+        <button
+          className="md:hidden text-zinc-300 p-2"
+          aria-label="Menú"
+          onClick={() => setOpen(!open)}
         >
-          <div className="custom-screen-lg gap-x-14 items-center md:flex">
-            <div
-              className={`flex max-w-screen-xl py-10 ${
-                animateHeader ? "py-5" : ""
-              } mx-auto items-center justify-between px-2 transition ease-in-out duration-500`}
-            >
-              <BgGradient className="absolute inset-x-0 top-0 mx-auto z-0" />
-              <Link
-                href="/"
-                className="text-xl font-bold tracking-tighter text-indigo-400 pr-8 z-10 hidden md:block"
-              >
-                <Brand />
-              </Link>
-            </div>
-            <div
-              className={`flex-1 items-center mt-8 md:mt-0 md:flex z-20 ${
-                state ? "block" : "hidden"
+          {open ? <XMarkIcon className="w-6 h-6" /> : <Bars3Icon className="w-6 h-6" />}
+        </button>
+      </nav>
+
+      {open && (
+        <div className="md:hidden border-t border-dopamina-linea bg-dopamina-fondo/95 backdrop-blur px-6 py-4 flex flex-col gap-4">
+          {navigation.map((item) => (
+            <a
+              key={item.path}
+              href={item.path}
+              onClick={() => setOpen(false)}
+              className={`text-sm font-semibold uppercase tracking-wider ${
+                activa === item.id ? "text-dopamina-amarillo" : "text-zinc-300"
               }`}
             >
-              <ul className="flex-1 justify-end items-center space-y-4 md:flex md:space-x-2 md:space-y-0">
-                {navigation.map((item, idx) => (
-                  <li
-                    key={idx}
-                    className="font-medium text-sm duration-200 flex items-center gap-2 z-30 group px-2 lg:px-6 py-1 text-md leading-[22px] md:px-3 hover:text-gray-100 text-gray-300"
-                  >
-                    <Link
-                      href={item.path}
-                      className="block"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        const section = document.querySelector(item.path);
-                        if (section) {
-                          const sectionOffset =
-                            section.getBoundingClientRect().top +
-                            window.scrollY;
-                          window.scrollTo({
-                            top:
-                              sectionOffset -
-                              (window.innerHeight / 2 -
-                                section.clientHeight / 2),
-                            behavior: "smooth",
-                          });
-                        }
-                      }}
-                    >
-                      {item.title}
-                    </Link>
-                    <item.icon.type className="w-4 h-4 opacity-100 scale-100 md:opacity-0 md:group-hover:opacity-100 md:scale-50 md:group-hover:scale-125 duration-150" />
-                  </li>
-                ))}
-                <li>
-                  {/* <EditorWithAiButton /> */}
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </header>
-      <NewsletterModal
-        isActive={isNewsletterModalActive}
-        closeModal={setNewsletterModalActive}
-      />
-    </>
+              {item.title}
+            </a>
+          ))}
+          <a
+            href="#planes"
+            onClick={() => setOpen(false)}
+            className="self-start px-4 py-2 rounded-full bg-dopamina-amarillo text-zinc-950 text-sm font-bold"
+          >
+            Hacete blandengue
+          </a>
+        </div>
+      )}
+    </header>
   );
 };
