@@ -16,6 +16,17 @@ const YtIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
   </svg>
 );
 
+const Miniatura = ({ videoId, alt }: { videoId: string; alt: string }) => (
+  <img
+    src={`https://i.ytimg.com/vi/${videoId}/mqdefault.jpg`}
+    alt={alt}
+    width={320}
+    height={180}
+    loading="lazy"
+    className="hidden sm:block w-32 aspect-video rounded-xl object-cover border border-dopamina-linea shrink-0"
+  />
+);
+
 export default () => {
   const [estado, setEstado] = useState<EstadoAire | null>(null);
   const [ultimo, setUltimo] = useState<UltimoVideo | null>(null);
@@ -40,25 +51,33 @@ export default () => {
 
   if (estado === null) return null;
 
-  const live = estado.live === true;
+  const upcoming = !estado.live ? estado.upcoming : null;
 
   return (
     <div className="custom-screen">
       <div className="max-w-3xl mx-auto -mt-12 relative z-20 rounded-[18px] border border-dopamina-linea bg-dopamina-panel px-6 py-5 flex flex-wrap items-center justify-between gap-4 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.6)]">
-        {live ? (
+        {estado.live ? (
           <>
-            <div>
-              <p className="text-[0.68rem] font-extrabold tracking-[0.12em] uppercase text-red-500">
-                ● Al aire ahora
-              </p>
-              <p className="font-display uppercase text-white text-2xl leading-tight mt-0.5">
-                {estado.show.nombre}
-              </p>
-              <p className="text-xs text-dopamina-tinta-2 mt-0.5">
-                {estado.show.hasta > 0
-                  ? `Hasta las ${fmtHora(estado.show.hasta)} · en vivo por YouTube`
-                  : "En vivo por YouTube"}
-              </p>
+            {/* EN VIVO: miniatura + programa + lo que está pasando */}
+            <div className="flex items-center gap-4 min-w-0 flex-1">
+              {estado.videoId && (
+                <Miniatura videoId={estado.videoId} alt={`En vivo: ${estado.show.nombre}`} />
+              )}
+              <div className="min-w-0">
+                <p className="text-[0.68rem] font-extrabold tracking-[0.12em] uppercase text-red-500">
+                  ● Al aire ahora
+                </p>
+                <p className="font-display uppercase text-white text-2xl leading-tight mt-0.5">
+                  {estado.show.nombre}
+                </p>
+                <p className="text-xs text-dopamina-tinta-2 mt-0.5">
+                  {estado.titulo
+                    ? tituloCorto(estado.titulo, 72)
+                    : estado.show.hasta > 0
+                    ? `Hasta las ${fmtHora(estado.show.hasta)} · en vivo por YouTube`
+                    : "En vivo por YouTube"}
+                </p>
+              </div>
             </div>
             <a
               href={estado.liveUrl ?? "https://www.youtube.com/@estoesdopamina/streams"}
@@ -69,13 +88,53 @@ export default () => {
               <YtIcon /> Entrar al vivo
             </a>
           </>
+        ) : upcoming ? (
+          <>
+            {/* Hay una transmisión programada: no es un vivo, es lo que viene */}
+            <div className="min-w-0 flex-1">
+              <p className="text-[0.68rem] font-extrabold tracking-[0.12em] uppercase text-dopamina-celeste">
+                ◉ Próxima transmisión
+              </p>
+              <p className="font-display uppercase text-white text-2xl leading-tight mt-0.5">
+                {upcoming.nombre !== "Dopamina"
+                  ? upcoming.nombre
+                  : upcoming.titulo
+                  ? tituloCorto(upcoming.titulo, 64)
+                  : "Dopamina en vivo"}
+              </p>
+              <p className="text-xs text-dopamina-tinta-3 mt-1">
+                {upcoming.inicioTxt ? `${upcoming.inicioTxt} por YouTube` : "Pronto por YouTube"}
+                {ultimo && (
+                  <>
+                    {" · "}
+                    <a
+                      href={urlVideo(ultimo)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-dopamina-tinta-2 hover:text-white underline underline-offset-2 duration-150"
+                    >
+                      mientras tanto, mirá lo último
+                    </a>
+                  </>
+                )}
+              </p>
+            </div>
+            <a
+              href={upcoming.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-full text-sm font-bold bg-white text-zinc-950 hover:bg-zinc-200 duration-150"
+            >
+              <YtIcon className="w-4 h-4 text-[#FF0000]" /> Avisame
+            </a>
+          </>
         ) : (
           <>
             {/* Radio apagada: el protagonista es lo último que salió, con su
                 título real (viene de /api/ultimos; si no hay dato, genérico). */}
             <div className="min-w-0 flex-1">
               <p className="inline-flex items-center gap-1.5 text-[0.68rem] font-extrabold tracking-[0.12em] uppercase text-zinc-100">
-                <YtIcon className="w-3.5 h-3.5 text-[#FF0000]" /> Ahora on demand
+                <YtIcon className="w-3.5 h-3.5 text-[#FF0000]" /> Lo último del canal
               </p>
               <p className="font-display uppercase text-white text-2xl leading-tight mt-0.5">
                 {ultimo ? tituloCorto(ultimo.titulo) : "El último programa te espera"}

@@ -137,6 +137,8 @@ export default () => {
           <div className="absolute top-full left-0 w-full h-full rounded-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-black via-black to-red-600 z-0 transition-all duration-500 group-hover:top-0"></div>
         </a>
 
+        {/* Facebook comentado: Dopamina todavía no tiene página (Marcos, 27/9/2026).
+            Cuando exista, descomentar este bloque y la línea sameAs de app/layout.tsx.
         <a
           href="https://www.facebook.com/estoesdopamina"
           target="_blank"
@@ -157,6 +159,7 @@ export default () => {
           </svg>
           <div className="absolute top-full left-0 w-full h-full rounded-full bg-blue-500 z-0 transition-all duration-500 group-hover:top-0"></div>
         </a>
+        */}
 
         <a
           href="https://www.linkedin.com/company/dopaminauy"

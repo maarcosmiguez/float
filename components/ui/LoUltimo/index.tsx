@@ -111,8 +111,28 @@ export default () => {
           return (
             <article
               key={p.slug}
-              className="relative flex flex-col rounded-[18px] border border-dopamina-linea bg-dopamina-panel p-5 duration-150 hover:border-dopamina-violeta hover:-translate-y-1 motion-reduce:hover:translate-y-0"
+              className="relative flex flex-col rounded-[18px] border border-dopamina-linea bg-dopamina-panel p-5 duration-150 hover:border-dopamina-violeta hover:-translate-y-1 motion-reduce:hover:translate-y-0 overflow-hidden"
             >
+              {/* Portada del video (mqdefault es 16:9 exacto, no se recorta) */}
+              {u && (
+                <a
+                  href={urlVideo(u)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  tabIndex={-1}
+                  aria-hidden="true"
+                  className="relative z-10 block -mx-5 -mt-5 mb-4 aspect-video border-b border-dopamina-linea"
+                >
+                  <img
+                    src={`https://i.ytimg.com/vi/${u.videoId}/mqdefault.jpg`}
+                    alt=""
+                    width={320}
+                    height={180}
+                    loading="lazy"
+                    className="w-full h-full object-cover"
+                  />
+                </a>
+              )}
               <span
                 className="self-start text-[0.64rem] font-extrabold tracking-widest uppercase border rounded-full px-2.5 py-1"
                 style={{ color: p.tint, borderColor: `${p.tint}55` }}
@@ -170,9 +190,6 @@ export default () => {
         </div>
       </div>
 
-      <p className="text-center text-xs text-dopamina-tinta-3 mt-6">
-        Cuando el portal esté al aire, acá también van a vivir las notas. En dopamina.uy.
-      </p>
     </div>
   );
 };

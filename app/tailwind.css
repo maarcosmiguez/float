@@ -18,6 +18,12 @@
   }
 }
 
+/* El header es fixed: los anclajes aterrizan debajo de él, con scroll suave */
+html {
+  scroll-padding-top: 84px;
+  scroll-behavior: smooth;
+}
+
 .custom-screen {
   @apply max-w-screen-xl mx-auto px-4 md:px-8;
 }

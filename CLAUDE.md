@@ -41,8 +41,16 @@ frase NO autoriza saltear su revisión visual.
 - Superficies SIEMPRE con los tokens de la maqueta: dopamina.fondo #0A0812,
   panel #14101F, linea, tinta-2/3. Nada de zinc en secciones del rediseño.
 - Color por función (Marcos, 27/9): on demand = ROJO YouTube o blanco+rojo;
-  amarillo solo para membresía/marca; verde-fluo = vúmetro. La palabra
-  "multimedio" no va en la web.
+  amarillo solo para membresía/marca; verde-fluo = vúmetro; celeste =
+  próxima transmisión. Las palabras "multimedio" y "pauta" no van en la web
+  (se dice "publicidad"). No decir "on demand" a cada rato: comunicar claro
+  ("Lo último", "Darle play").
+- Dopamina NO tiene Facebook todavía: los bloques quedaron comentados en
+  SocialMedia y en el sameAs de app/layout.tsx; descomentar cuando exista.
+- Aire, 3 estados (validados contra HTML real de /live, 27/9): EN VIVO =
+  "isLive":true SIN "isUpcoming":true (chip entero clickeable al vivo, banner
+  con miniatura + programa + título). PROGRAMADO = "isUpcoming":true (banner
+  "Próxima transmisión", nunca decir en vivo). Sin nada = lo último on demand.
 - Tagline: "El estrimin que mira Uruguay" ("Uruguay" en dopamina.celeste).
 - Comunidad: "blandengues". Web = B2C cercano; dossier = B2B.
 - /api/ultimos scrapea la playlist de cada programa (las 4 vigentes están en

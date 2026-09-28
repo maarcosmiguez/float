@@ -13,12 +13,11 @@ import Footer from "components/ui/Footer";
 export default () => {
   return (
     <>
+      {/* Orden de la maqueta fase 2a: del aire directo a los contenidos;
+          la membresía va al final del recorrido, con su énfasis en el hero. */}
       <section id="home">
         <Hero />
         <AlAireBanner />
-      </section>
-      <section id="planes" className="py-16">
-        <PlanesDeSuscripcion />
       </section>
       <section id="contenido">
         <Contenido />
@@ -30,7 +29,12 @@ export default () => {
       <section id="somos" className="py-16">
         <Somos />
       </section>
-      <Contacto />
+      <section id="planes" className="py-16">
+        <PlanesDeSuscripcion />
+      </section>
+      <section id="contacto">
+        <Contacto />
+      </section>
       <Footer />
     </>
   );

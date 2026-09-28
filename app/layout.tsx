@@ -67,7 +67,8 @@ const jsonLd = {
         "https://www.instagram.com/estoesdopamina",
         "https://x.com/estoesdopamina",
         "https://www.tiktok.com/@estoesdopamina",
-        "https://www.facebook.com/estoesdopamina",
+        // Facebook: descomentar cuando exista la página
+        // "https://www.facebook.com/estoesdopamina",
         "https://www.linkedin.com/company/dopaminauy",
       ],
     },
