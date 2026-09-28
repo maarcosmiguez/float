@@ -91,7 +91,12 @@ export default () => {
         ) : upcoming ? (
           <>
             {/* Hay una transmisión programada: no es un vivo, es lo que viene */}
-            <div className="min-w-0 flex-1">
+            <div className="flex items-center gap-4 min-w-0 flex-1">
+              <Miniatura
+                videoId={upcoming.videoId}
+                alt={`Próxima transmisión: ${upcoming.nombre}`}
+              />
+              <div className="min-w-0">
               <p className="text-[0.68rem] font-extrabold tracking-[0.12em] uppercase text-dopamina-celeste">
                 ◉ Próxima transmisión
               </p>
@@ -118,6 +123,7 @@ export default () => {
                   </>
                 )}
               </p>
+              </div>
             </div>
             <a
               href={upcoming.url}

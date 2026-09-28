@@ -96,6 +96,7 @@ export function fmtHora(min: number) {
 export type ProximaTx = {
   nombre: string; // programa detectado en el título, o "Dopamina"
   titulo?: string;
+  videoId: string;
   url: string;
   inicioTxt: string | null; // "hoy 7:45h" / "mañana 7:45h" / "lunes 7:45h"
 };
@@ -236,6 +237,7 @@ export async function estadoAire(): Promise<EstadoAire> {
     ? {
         nombre: detectarPrograma(yt.upcoming.titulo) ?? "Dopamina",
         titulo: yt.upcoming.titulo,
+        videoId: yt.upcoming.videoId,
         url: `https://www.youtube.com/watch?v=${yt.upcoming.videoId}`,
         inicioTxt: fmtInicio(yt.upcoming.inicio),
       }

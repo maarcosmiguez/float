@@ -79,13 +79,21 @@ export default () => {
           upcoming ? "bg-dopamina-celeste" : "bg-dopamina-tinta-3"
         }`}
       />
-      <span className={upcoming ? "text-white" : "text-dopamina-tinta-2"}>
-        {estado === null
-          ? "SEÑAL"
-          : upcoming
-          ? `PRÓXIMO VIVO${upcoming.inicioTxt ? ` · ${upcoming.inicioTxt}` : ""}`
-          : "FUERA DE AIRE"}
-      </span>
+      {upcoming ? (
+        // El próximo vivo linkea directo a la transmisión programada
+        <a
+          href={upcoming.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-white hover:text-dopamina-celeste duration-150"
+        >
+          PRÓXIMO VIVO{upcoming.inicioTxt ? ` · ${upcoming.inicioTxt}` : ""}
+        </a>
+      ) : (
+        <span className="text-dopamina-tinta-2">
+          {estado === null ? "SEÑAL" : "FUERA DE AIRE"}
+        </span>
+      )}
       <Vumetro activo={false} />
       <Reloj hhmm={estado?.hhmm} />
       <a
