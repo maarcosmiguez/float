@@ -20,13 +20,16 @@ const HEADERS = {
 
 export const revalidate = 0; // el cache lo maneja el fetch interno + s-maxage
 
-// "hace 2 días" → minutos aproximados, solo para ordenar cuál es lo más nuevo.
+// "hace 2 días" → minutos aproximados, solo para ordenar cuál es lo más
+// nuevo. OJO: YouTube ABREVIA las unidades cortas ("hace 14 h", "hace 30
+// min"); sin esas abreviaturas acá, lo de hoy quedaba con edad infinita y
+// el banner elegía lo de hace días (bug que detectó Marcos el 1/10).
 const UNIDADES: [RegExp, number][] = [
-  [/segundo/, 1 / 60],
-  [/minuto/, 1],
-  [/hora/, 60],
+  [/^s$|segundo/, 1 / 60],
+  [/^min\b|minuto/, 1],
+  [/^h$|^hs$|hora/, 60],
   [/d[ií]a/, 1440],
-  [/semana/, 10080],
+  [/^sem\b|semana/, 10080],
   [/mes/, 43200],
   [/año|ano/, 525600],
 ];
@@ -44,6 +47,7 @@ export type UltimoVideo = {
   titulo: string;
   cuando: string; // texto de YouTube: "Transmitido hace 2 días", "hace 8 días"
   vivo: boolean; // true si fue transmisión en vivo
+  enVivoAhora?: boolean; // true si está transmitiendo EN ESTE MOMENTO
   edadMin: number;
 };
 
@@ -66,12 +70,16 @@ function parseUltimo(html: string): UltimoVideo | null {
     /"content":"((?:Transmitido |Se estren[^" ]{0,4} )?hace [^"]*)"/
   );
   const cuando = cu ? cu[1] : "";
+  // Si el primer item está transmitiendo AHORA, el lockup lleva el badge
+  // LIVE y todavía no tiene "hace X": edad cero, es lo más nuevo que hay.
+  const enVivoAhora = seg.includes("BADGE_STYLE_LIVE");
   return {
     videoId: vid[1],
     titulo,
     cuando,
-    vivo: cuando.startsWith("Transmitido"),
-    edadMin: edadEnMinutos(cuando),
+    vivo: cuando.startsWith("Transmitido") || enVivoAhora,
+    enVivoAhora,
+    edadMin: enVivoAhora ? 0 : edadEnMinutos(cuando),
   };
 }
 

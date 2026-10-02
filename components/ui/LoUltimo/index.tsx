@@ -150,8 +150,14 @@ export default () => {
                 {u ? tituloCorto(u.titulo) : "La lista completa, on demand"}
               </a>
               {/* Un video programado todavía no tiene "hace X": queda neutro */}
-              <p className="text-xs text-dopamina-tinta-3 mt-2">
-                {u?.cuando || "En YouTube"}
+              <p
+                className={`text-xs mt-2 ${
+                  u?.enVivoAhora
+                    ? "text-red-500 font-extrabold uppercase tracking-wider"
+                    : "text-dopamina-tinta-3"
+                }`}
+              >
+                {u?.enVivoAhora ? "● Ahora en vivo" : u?.cuando || "En YouTube"}
               </p>
               <div className="relative z-10 mt-auto pt-4 flex flex-wrap gap-2">
                 <Chip href={p.playlist} tint={p.tint}>

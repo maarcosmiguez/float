@@ -6,6 +6,7 @@ export type UltimoVideo = {
   titulo: string;
   cuando: string;
   vivo: boolean;
+  enVivoAhora?: boolean;
   edadMin: number;
 };
 
@@ -26,21 +27,38 @@ export function consultarUltimos() {
   return ultimosPromise;
 }
 
-// Los títulos de YouTube terminan en "| Poco se Habla" o "| Dopamina": para
-// la web queda el titular solo, cortado en palabra si es muy largo.
+// Los títulos de YouTube van separados con "|" ("🔴 EN VIVO | tema | Programa").
+// Para la web queda el tramo con contenido: se saltean los avisos tipo
+// "EN VIVO" o "AHORA" y los tramos muy cortos, y se corta en palabra.
 export function tituloCorto(titulo: string, max = 88) {
-  const base = titulo.split(/\s*\|\s*/)[0].trim() || titulo.trim();
+  const partes = titulo
+    .split(/\s*\|\s*/)
+    .map((p) => p.trim())
+    .filter(Boolean);
+  const base =
+    partes.find((p) => p.length >= 15 && !/en vivo|ahora/i.test(p.slice(0, 20))) ??
+    [...partes].sort((a, b) => b.length - a.length)[0] ??
+    titulo.trim();
   if (base.length <= max) return base;
   const corte = base.slice(0, max);
   const espacio = corte.lastIndexOf(" ");
   return (espacio > 40 ? corte.slice(0, espacio) : corte) + "…";
 }
 
+// Criterio del banner (Marcos, 1/10): el protagonista es el último PROGRAMA
+// EMITIDO COMPLETO (vivos "Transmitido…"), no un corte. Un corte solo gana
+// si ninguna lista tiene vivos. Si algo está al aire ahora, tiene edad cero
+// y gana solo (además el banner en estado EN VIVO ya manda por su lado).
 export function masReciente(u: Ultimos | null): UltimoVideo | null {
   if (!u?.programas) return null;
+  const todos = Object.values(u.programas).filter(
+    (v): v is UltimoVideo => !!v
+  );
+  const vivos = todos.filter((v) => v.vivo);
+  const pool = vivos.length ? vivos : todos;
   let best: UltimoVideo | null = null;
-  for (const v of Object.values(u.programas)) {
-    if (v && (!best || v.edadMin < best.edadMin)) best = v;
+  for (const v of pool) {
+    if (!best || v.edadMin < best.edadMin) best = v;
   }
   return best;
 }
